@@ -3,7 +3,7 @@ class CreateQuerys < ActiveRecord::Migration
     def change
       create_table :querys do |t|
         t.string :content
-        t.integer :query_id
+        t.integer :user_id
       end
     end
 
