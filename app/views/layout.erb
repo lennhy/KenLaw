@@ -5,14 +5,8 @@
   <title>Kener</title>
 </head>
 <body>
-  <!-- Logic that changes the appearance of the page if the user is logged in or not -->
-  <% if Helper.is_logged_in?(session) %>
-    <a href="/querys/new">Post a Query</a>
-    <a href="/logout">Log Out</a>
-    <p>Welcome, <%=Helper.current_user(session).username %></p>
-  <% else %>
+  <%= yield %>
     <a href="/signup">Sign Up</a>
     <a href="/login">Login</a>
-  <%end %>
 </body>
 </html>

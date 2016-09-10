@@ -1,4 +1,4 @@
-class Query < ActiveRecord::Base
+class User < ActiveRecord::Base
   has_many :querys
   has_many :results, through: :querys
 

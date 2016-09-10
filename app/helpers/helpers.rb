@@ -1,5 +1,4 @@
-require 'sinatra/base'
-class Helpers
+class Helpers < ActiveRecord::Base
     # --To add double protection to the view so that only the current user, when they are logged in, can see their information
     def self.current_user(session)
       User.find(session[:user_id])
