@@ -6,7 +6,7 @@ end
 
 use Rack::MethodOverride
 
-use QuerysController
+use QuestionsController
 use ResultsController
 use UsersController
 run ApplicationController

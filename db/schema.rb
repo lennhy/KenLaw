@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 3) do
 
-  create_table "querys", force: :cascade do |t|
+  create_table "questions", force: :cascade do |t|
     t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at"
