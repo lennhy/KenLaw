@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
+    use Rack::Flash
 		set :session_secret, "kener_secret" # --encryption key that will be used to create a
   end
 

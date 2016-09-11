@@ -1,1 +1,11 @@
-<h3>Here are all the posted questions from every users</h3>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<h3>Welcome, <%=Helpers.current_user(session).username %> </h3>
+<h4>Here are all the posted questions from every users</h4>
+<h4>Questions:</h4>
+<ul>
+  <%@questions.each do |q|  %>
+    <li><%= q.content %></li>
+  <%end%>
+</ul>
