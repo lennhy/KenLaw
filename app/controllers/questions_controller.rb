@@ -9,4 +9,16 @@ class QuestionsController < ApplicationController
     end
   end
 
+  post '/user_question' do
+    @result = Result.find
+    # @song = Song.create(name: params["Name"])
+    # @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+    # @question.result_ids = params[:results]
+    # @song.save
+
+    flash[:message] = "Successfully posted a question."
+
+    redirect to "/users_questions/#{@result.id}"
+  end
+
 end

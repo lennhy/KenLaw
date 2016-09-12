@@ -1,6 +1,14 @@
 <h3>This is your new question that you posted</h3>
 
-<%=@results.each do |r| %>
-label for result
-  <input ="checkbox" name="results[]"  value="<%=r.content%>" id="result" class="">
-<%end%>
+<div class="form-group">
+  <h4>Choose a result that matches your search the most.<h4/>
+  <%Results.each do |r| %>
+    <label for "result"><%= r.content %></label>
+    <input id="result" class="form-control" type="checkbox" name="results[]" value="<%= r.id %>">
+  <%end%>
+</form>
+
+<!-- <label>Genre</label>
+<% Genre.all.each do |genre|%>
+  <label><%=genre.name%></label><input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+<% end %> -->
