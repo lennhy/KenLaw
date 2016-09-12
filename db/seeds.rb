@@ -5,11 +5,6 @@ Question.create(content: "police arrests me without my consent.")
 Question.create(content: "I have been in jail without a trial for over 2 months.")
 Question.create(content: "I want to protest against the government but I am afraid that I will get arrested.")
 
-
-SELECT * FROM amendments
-WHERE content LIKE 'ber%';
-
-http://www.w3schools.com/sql/sql_wildcards.asp
 AMENDMENTS = {
                "The 1st Amendment" => "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof;
                                        or abridging the freedom of speech, or of the press; or the right of the people, peaceably to assemble, and
@@ -55,3 +50,6 @@ AMENDMENTS = {
               "The 15th Amendment" => "The right of citizens of the United States to vote shall not be denied or abridged by the United States
                                        or by any State on account of race,color, or previous condition of servitude."
       }
+
+# --seed the databse with amendment objects
+Amendment.seed_databse(AMENDMENTS)

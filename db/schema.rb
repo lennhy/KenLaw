@@ -12,16 +12,16 @@
 
 ActiveRecord::Schema.define(version: 3) do
 
-  create_table "questions", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "user_id"
+  create_table "amendments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "results", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "query_id"
+  create_table "questions", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -15,8 +15,9 @@ class QuestionsController < ApplicationController
      end
   end
 
-  post '/quesitons' do
-    @result = Result.find_by_description(params[:question])
+  post '/questions' do
+    # Amendment.find_by_description(params[:question])
+    @amendment = Amendment.where(content: params[:question])
     binding.pry
     # @song = Song.create(name: params["Name"])
     # @song.artist = Artist.find_or_create_by(name: params["Artist Name"])

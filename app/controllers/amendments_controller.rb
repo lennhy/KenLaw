@@ -1,0 +1,2 @@
+class AmendmentsController < ApplicationController
+end
