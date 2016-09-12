@@ -1,1 +1,6 @@
 <h3>This is your new question that you posted</h3>
+
+<%=@results.each do |r| %>
+label for result
+  <input ="checkbox" name="results[]"  value="<%=r.content%>" id="result" class="">
+<%end%>

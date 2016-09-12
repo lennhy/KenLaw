@@ -33,7 +33,13 @@ class UsersController < ApplicationController
 
   # -- after attempt to login
   post "/login" do
-    redirect to "/users_questions"
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password]) # --check if username and password matches
+      session[:user_id] = user.id
+      redirect to "/users_questions"
+    else
+      redirect to "/login"
+    end
   end
 
   # -- show users page with all their posted questions
