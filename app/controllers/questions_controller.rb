@@ -1,16 +1,23 @@
 class QuestionsController < ApplicationController
 
-  get "/users_questions" do
+  get "/questions" do
     if session[:user_id]
       @questions = Question.all
-      erb :"questions/users_questions"
+      erb :"questions/questions"
     else
       redirect "/login"
     end
   end
 
-  post '/user_question' do
-    @result = Result.find
+  get '/questions/create_question' do
+    if session[:user_id]
+       erb :"questions/create_question"
+     end
+  end
+
+  post '/quesitons' do
+    @result = Result.find_by_description(params[:question])
+    binding.pry
     # @song = Song.create(name: params["Name"])
     # @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
     # @question.result_ids = params[:results]
@@ -18,7 +25,7 @@ class QuestionsController < ApplicationController
 
     flash[:message] = "Successfully posted a question."
 
-    redirect to "/users_questions/#{@result.id}"
+    redirect to "/questions/#{@result.id}"
   end
 
 end
