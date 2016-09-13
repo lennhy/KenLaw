@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
       @question = Question.create(:content => params[:content], :user_id => user.id)
       @amendment = Amendment.where(content: params[:content])
       redirect to "/questions/#{@question.id}"
-  end
+    end
 end
 
 get '/questions/:id' do
