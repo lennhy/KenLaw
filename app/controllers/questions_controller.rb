@@ -27,21 +27,10 @@ class QuestionsController < ApplicationController
       @question = Question.create(:content => params[:content], :user_id => user.id)
       @search = params[:content]
       @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Content LIKE '%#{@search}%';")
-      # @amendment[0].question_id = @question.id
       @question.amendments << @amendment
-      # @amendment.each do |item|
-      #   binding.pry
-      #
-      #   @name =  item.name
-      #   @id = item.name
-      #   @content = item.content
-      # end
-
-            redirect to "/questions/#{@question.id}"
+      redirect to "/questions/#{@question.id}"
     end
 end
-# SELECT * FROM Customers
-# WHERE City LIKE '%es%';
 
 get '/questions/:id' do
   if session[:user_id]
