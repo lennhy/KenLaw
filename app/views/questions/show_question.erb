@@ -1,14 +1,15 @@
 <h3>This is your new question that you posted</h3>
 
-<div class="form-group">
-  <h4>Choose a result that matches your search the most.<h4/>
-  <%Results.each do |r| %>
-    <label for "result"><%= r.content %></label>
-    <input id="result" class="form-control" type="checkbox" name="results[]" value="<%= r.id %>">
-  <%end%>
-</form>
+<p><%= @question.content %>
 
-<!-- <label>Genre</label>
-<% Genre.all.each do |genre|%>
-  <label><%=genre.name%></label><input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
-<% end %> -->
+<p>Choose a result that matches your search the most.<p/>
+
+<form action="questions/user_questions" method="POST">
+  <div class="form-group">
+      <%Amendment.all.each do |a| %>
+        <label for "amendment"><%= a.content %></label>
+        <input id="amendment" class="form-control" type="checkbox" name="amendment[]" value="<%= a.id %>">
+        <button type="submit" class="btn btn-default">Submit</button>
+      <%end%>
+  </div>
+</form >

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if !session[:user_id] # -- if user is not logged in
      erb :"users/create_user"
    else
-     redirect to "/questions" # -- if user is already logged in then they should not see the signup page
+     redirect to "/users_questions" # -- if user is already logged in then they should not see the signup page
    end
   end
 
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       @user = User.create(email: params[:email], username: params[:username], password: params[:password])
       session[:user_id] = @user.id
       flash[:message] = "You have successfully signed up."
-      redirect to "/questions"
+      redirect to "/users_questions"
     end
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     if session[:user_id].nil?
       erb :"users/login"
     else
-      redirect "/questions"
+      redirect "/users_questions"
     end
   end
 
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password]) # --check if username and password matches
       session[:user_id] = user.id
-      redirect to "/questions"
+      redirect to "/users_questions"
     else
       redirect to "/login"
     end
