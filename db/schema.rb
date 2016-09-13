@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 3) do
 
   create_table "amendments", force: :cascade do |t|
+    t.string   "name"
     t.text     "content"
     t.integer  "question_id"
     t.datetime "created_at"

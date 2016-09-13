@@ -5,10 +5,10 @@
 
 <form action="questions/user_questions" method="POST">
   <div class="checkbox">
-      <%Amendment.all.each do |a| binding.pry%>
-        <label for "amendment"><%= a.content %></label>
-        <input id="amendment" type="checkbox" name="amendment[]" value="<%= a.id %>">
+      <%@amendment.all.each do |a| %>
+        <label><%= a.name %></label>
+          <label><input type="checkbox" name="amendment[]" value="<%= a.id %>"><%= a.content %>
       <%end%>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
-</form >
+</form>

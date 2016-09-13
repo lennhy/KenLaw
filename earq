@@ -1,0 +1,120 @@
+=> [[32m#<Amendment:0x00000003b00498[0m
+  id: [1;34m1[0m,
+  name: [31m[1;31m"[0m[31mThe 1st Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mCongress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof;[1;35m\n[0m[31m                                       or abridging the freedom of speech, or of the press; or the right of the people, peaceably to assemble, and[1;35m\n[0m[31m                                       to petition the Government for a redress of grievances.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b00358[0m
+  id: [1;34m2[0m,
+  name: [31m[1;31m"[0m[31mThe 2nd Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mA well regulated Militia, being necessary to the security of a free State, the right of the people to[1;35m\n[0m[31m                                       keep and bear Arms, shall not be infringed.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b00218[0m
+  id: [1;34m3[0m,
+  name: [31m[1;31m"[0m[31mThe 3rd Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mNo Soldier shall, in time of peace be quartered in any house, without the consent of the Owner,[1;35m\n[0m[31m                                       nor in time of war, but in a manner to be prescribed by law.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b000d8[0m
+  id: [1;34m4[0m,
+  name: [31m[1;31m"[0m[31mThe 4th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mThe right of the people to be secure in their persons, houses, papers, and effects, against unreasonable[1;35m\n[0m[31m                                       searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0ff60[0m
+  id: [1;34m5[0m,
+  name: [31m[1;31m"[0m[31mThe 5th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mNo person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or[1;35m\n[0m[31m                                       indictment of Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0fe20[0m
+  id: [1;34m6[0m,
+  name: [31m[1;31m"[0m[31mThe 6th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mIn all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the[1;35m\n[0m[31m                                      State and district wherein the crime shall have been committed, which district shall have been previously ascertained by law, and to be informed of the nature and cause of the accusation; to be confronted with the witnesses against him; to have compulsory process for obtaining witnesses in his favor, and to have the Assistance of Counsel for his defence.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0fce0[0m
+  id: [1;34m7[0m,
+  name: [31m[1;31m"[0m[31mThe 7th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mIn Suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury shall be[1;35m\n[0m[31m                                      preserved, and no fact tried by a jury, shall be otherwise re-examined in any Court of the United States, than according to the rules of the common law.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0fba0[0m
+  id: [1;34m8[0m,
+  name: [31m[1;31m"[0m[31mThe 8th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mExcessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0fa60[0m
+  id: [1;34m9[0m,
+  name: [31m[1;31m"[0m[31mThe 9th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mThe enumeration in the Constitution, of certain rights, shall not be construed to deny or[1;35m\n[0m[31m                                      disparage others retained by the people.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0f920[0m
+  id: [1;34m10[0m,
+  name: [31m[1;31m"[0m[31mThe 10th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mThe powers not delegated to the United States by the Constitution, nor prohibited by it to the States,[1;35m\n[0m[31m                                       are reserved to the States respectively, or to the people.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0f7e0[0m
+  id: [1;34m11[0m,
+  name: [31m[1;31m"[0m[31mThe 11th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mThe Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced[1;35m\n[0m[31m                                      or prosecuted against one on the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0f6a0[0m
+  id: [1;34m12[0m,
+  name: [31m[1;31m"[0m[31mThe 12th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mElectors will vote for President and Vice President on separate ballots. (1804)[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0f560[0m
+  id: [1;34m13[0m,
+  name: [31m[1;31m"[0m[31mThe 13th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mNeither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly[1;35m\n[0m[31m                                      convicted, shall exist within the United States, or any place subject to their jurisdiction. SECTION 2. Congress shall have power to enforce this article by appropriate legislation.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0f420[0m
+  id: [1;34m14[0m,
+  name: [31m[1;31m"[0m[31mThe 14th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mAll persons born or naturalized in the United States and subject to the jurisdiction thereof, are citizens of the[1;35m\n[0m[31m                                       United States and of the State wherein they reside. No State shall make or enforce any law which shall abridge the privileges or immunities of citizens of the United States; nor shall any State deprive any person of life, liberty, or property, without due process of law; nor deny to any person within its jurisdiction the equal protection of the laws.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m,
+ [32m#<Amendment:0x00000003b0f2e0[0m
+  id: [1;34m15[0m,
+  name: [31m[1;31m"[0m[31mThe 15th Amendment[1;31m"[0m[31m[0m,
+  content:
+   [31m[1;31m"[0m[31mThe right of citizens of the United States to vote shall not be denied or abridged by the United States[1;35m\n[0m[31m                                       or by any State on account of race,color, or previous condition of servitude.[1;31m"[0m[31m[0m,
+  question_id: [1;36mnil[0m,
+  created_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m,
+  updated_at: [1;34m2016[0m-[1;34m09[0m-[1;34m13[0m [1;34m04[0m:[1;34m37[0m:[1;34m41[0m [1;34;4mUTC[0m[32m>[0m]

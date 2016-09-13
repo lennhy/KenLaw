@@ -7,13 +7,19 @@ class Amendment < ActiveRecord::Base
 
   def self.find_by_description(search)
     # bill = search.split(" ").join(", ")
-    self.any? do |amendment, content|
-      if content.match(/#{search}/)
-        binding.pry
-          content
-      end
+    # Amendment.all.each do |amendment, content|
+    #   binding.pry
+    #   if content.match(/#{search}/)
+    #     binding.pry
+    #       content
+    #   end
 
-    end
+    # end
+    self.find_by_sql("SELECT * FROM amendments
+      WHERE amendments LIKE #{search}
+    ")
+    binding.pry
+
   end
 
   # -- create objects for every amendment key value pair to seed the databse with
