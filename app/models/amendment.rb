@@ -6,15 +6,6 @@ class Amendment < ActiveRecord::Base
   # include Slugifiable::InstanceMethods
 
   def self.find_by_description(search)
-    # bill = search.split(" ").join(", ")
-    # Amendment.all.each do |amendment, content|
-    #   binding.pry
-    #   if content.match(/#{search}/)
-    #     binding.pry
-    #       content
-    #   end
-
-    # end
     self.find_by_sql("SELECT * FROM amendments
       WHERE amendments LIKE #{search}
     ")
