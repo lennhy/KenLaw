@@ -3,7 +3,12 @@
 
 <p>Choose a result that matches your search the most.<p/>
 
-  <ul>
-    <li><%= @amendment %></li>
-  </ul>
+<form action="questions/user_questions" method="POST">
+  <div class="checkbox">
+      <%@amendment.each do |a| %>
+        <label><%= a.name %></label>
+          <label><input type="checkbox" name="amendment[]" value="<%= a.id %>"><%= a.content %>
+      <%end%>
+  </div>
   <button type="submit" class="btn btn-default">Submit</button>
+</form>

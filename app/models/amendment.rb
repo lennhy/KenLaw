@@ -5,13 +5,8 @@ class Amendment < ActiveRecord::Base
   # extend Slugifiable::ClassMethods
   # include Slugifiable::InstanceMethods
 
-  def self.find_by_description(search)
-    self.find_by_sql("SELECT * FROM amendments
-      WHERE amendments LIKE #{search}
-    ")
-    binding.pry
-
-  end
+  # def self.find_by_description(search)
+  # end
 
   # -- create objects for every amendment key value pair to seed the databse with
   def self.seed_databse(params)
