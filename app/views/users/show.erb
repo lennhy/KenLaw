@@ -1,5 +1,5 @@
 <h3><%= @user.username %></h3>
 
-<%@user.questions.each do |question| %>
-  <li><p><%=question.content%></p></li>  
+<%@user.questions.each_with_index do |question, i| %>
+  <p><%= "#{i+1}." %><%=question.content%></p>
 <%end%>

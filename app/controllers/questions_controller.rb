@@ -20,7 +20,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-
   # -- get the create a question page
   get '/users_questions/create_question' do
     if session[:user_id]
@@ -39,7 +38,7 @@ class QuestionsController < ApplicationController
       @question = Question.create(:content => params[:content], :user_id => user.id)
       @search = params[:content]
       # -- find the closest matching amendment for the search entered in the create a question page
-      @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@search}%'")
+      @amendment = Amendment.find_by_description(params[:content])
       # -- associate the amendment that was returned to belong to the question
       @question.amendments << @amendment
       @question.save
@@ -80,7 +79,7 @@ class QuestionsController < ApplicationController
       @question.amendments.clear
       @question.content = params[:content]
       @search = params[:content]
-      @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@search}%'")
+      @amendment = Amendment.find_by_description(params[:content])
       @question.amendments << @amendment
       @question.save
       redirect to "/users_questions/#{@question.id}"
