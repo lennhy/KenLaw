@@ -1,1 +1,5 @@
-<h3>See all users here</h3>
+<h3><%= @user.username %></h3>
+
+<%@user.questions.each do |question| %>
+  <li><p><%=question.content%></p></li>  
+<%end%>

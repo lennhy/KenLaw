@@ -20,10 +20,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # -- find user of a posted question from users_questions page
-  get do
-    find_by_id(questions.user_ids)
-  end
 
   # -- get the create a question page
   get '/users_questions/create_question' do

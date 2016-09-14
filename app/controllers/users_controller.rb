@@ -42,9 +42,14 @@ class UsersController < ApplicationController
     end
   end
 
-  # -- show users page with all their posted questions
-  get "/show" do
-    erb :"users/show"
+  # -- show users page of question posted by id
+  get "/users/:id" do
+    if session[:user_id]
+      @user = User.find_by_id(params[:id])
+      erb :'users/show'
+    else
+      redirect to '/login'
+    end
   end
 
   get "/logout" do
