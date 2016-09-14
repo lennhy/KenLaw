@@ -1,1 +1,13 @@
-<h3>Here are all the questions you posted</h3>
+<h3>My Questions:</h3>
+  <ul>
+    <%@user.questions.each_with_index do |q, i|%>
+          <li><h5><%= "#{i+1}." %> <%= q.content %></h5></li>
+    <%end%>
+  </ul>
+
+<h3>My Results:</h3>
+  <ul>
+    <%@user.amendments.each_with_index do |a, i| %>
+          <li><h5><%= "#{i+1}." %><%= a.content %></h5></li>
+    <%end%>
+  </ul>

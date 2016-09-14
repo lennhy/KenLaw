@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  # --see all user's questions
+  # -- see all the posted questions from every user
   get "/users_questions" do
     if session[:user_id]
       @questions = Question.all
@@ -10,6 +10,17 @@ class QuestionsController < ApplicationController
     end
   end
 
+  # --see your own questions
+  get "/user_questions" do
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+      erb :"questions/user_questions"
+    else
+      redirect "/login"
+    end
+  end
+
+  # -- find user of a posted question
   # -- get the create a question page
   get '/users_questions/create_question' do
     if session[:user_id]
