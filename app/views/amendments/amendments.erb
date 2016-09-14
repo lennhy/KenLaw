@@ -1,0 +1,11 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<h3>Welcome,<%= Helpers.current_user(session).username %></h3>
+<h4>Here are all the results / amendments from every user question.</h4>
+<h4>Amendments:</h4>
+<ul>
+  <% @amendments.each do |a| %>
+    <li><%= a.content %></li>
+  <% end %>
+</ul>
