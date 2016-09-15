@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
 
+# ------------------------- GET --------------------------------
+
   # -- see all the posted questions from every user
   get "/users_questions" do
     if logged_in?
@@ -28,6 +30,8 @@ class QuestionsController < ApplicationController
        redirect to '/login'
      end
   end
+
+  # ------------------------- GET --------------------------------
 
   # -- see the questions of the individual user
   post '/users_questions' do
