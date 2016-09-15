@@ -34,10 +34,7 @@ class QuestionsController < ApplicationController
     if params[:content] == "" # --check if the user entered correct information if not redirect
       redirect to "/users_questions/create_question"
     else
-      user = current_user
-      @question = Question.create(:content => params[:content], :user_id => user.id)
       @question = current_user.questions.create(content: params[:content])
-
       @search = params[:content]
       # -- find the closest matching amendment for the search entered in the create a question page
       @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@search}%'")
@@ -50,7 +47,7 @@ class QuestionsController < ApplicationController
 
   # -- see the newly created question and its corresponding amendment result from the search
   get '/users_questions/:id' do
-    if session[:user_id]
+    if logged_in?
       @question = Question.find_by_id(params[:id])
       erb :'questions/show_question'
     else
@@ -60,9 +57,9 @@ class QuestionsController < ApplicationController
 
   # -- change question
   get '/users_questions/:id/edit' do
-    if session[:user_id]
+    if logged_in?
       @question = Question.find_by_id(params[:id])
-      if @question.user_id == session[:user_id]
+      if @question.user_id == current_user.id
        erb :'questions/edit_question'
       else
         redirect to '/users_questions'
@@ -91,9 +88,9 @@ class QuestionsController < ApplicationController
   # --delete question and corresponding amendment result
   delete '/users_questions/:id/delete' do
     @question = Question.find_by_id(params[:id])
-    if session[:user_id]
+    if logged_in?
       @question = Question.find_by_id(params[:id])
-      if @question.user_id == session[:user_id]
+      if @question.user_id == current_user.id
         @question.delete
         @question.amendments.delete
         redirect to '/users_questions'

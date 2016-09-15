@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   # -- takes you to the signup page from the home page for new users
   get "/signup" do
-    if !session[:user_id] # -- if user is not logged in
+    if !logged_in? # -- if user is not logged in
      erb :"users/create_user"
    else
      redirect to "/users_questions" # -- if user is already logged in then they should not see the signup page
@@ -44,8 +44,8 @@ class UsersController < ApplicationController
 
   # -- show users page of question posted by id
   get "/users/:id" do
-    if session[:user_id]
-      @user = User.find_by_id(params[:id])
+    if logged_in?
+      @user = current_user
       erb :'users/show'
     else
       redirect to '/login'
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   get "/logout" do
-    if !session[:user_id].nil?
+    if logged_in
       session.destroy
       redirect to "/login"
     else
