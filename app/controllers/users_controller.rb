@@ -44,8 +44,8 @@ class UsersController < ApplicationController
 
   # -- show users page of question posted by id
   get "/users/:id" do
-    if logged_in?
-      @user = current_user
+    if session[:user_id]
+      @user = User.find_by_id(params[:id])
       erb :'users/show'
     else
       redirect to '/login'
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   get "/logout" do
-    if logged_in
+    if logged_in?
       session.destroy
       redirect to "/login"
     else

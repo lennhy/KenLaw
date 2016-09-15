@@ -90,7 +90,7 @@ class QuestionsController < ApplicationController
     @question = Question.find_by_id(params[:id])
     if logged_in?
       @question = Question.find_by_id(params[:id])
-      if @question.user_id == current_user.id
+      if @question.user_id == session[:user_id]
         @question.delete
         @question.amendments.delete
         redirect to '/users_questions'
