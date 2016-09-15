@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   # -- get to the login page view
   get "/login" do
-    if session[:user_id].nil?
+    if !logged_in?
       erb :"users/login"
     else
       flash[:message] = "You have successfully logged in."
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
   # -- show users page of question posted by id
   get "/users/:id" do
-    if session[:user_id]
+    if logged_in?
       @user = User.find_by_id(params[:id])
       erb :'users/show'
     else
