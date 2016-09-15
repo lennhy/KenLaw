@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  use Rack::Flash
 
   # -- takes you to the signup page from the home page for new users
   get "/signup" do
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
     if session[:user_id].nil?
       erb :"users/login"
     else
+      flash[:message] = "You have successfully logged in."
       redirect "/users_questions"
     end
   end

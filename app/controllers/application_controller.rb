@@ -1,14 +1,15 @@
 require 'sinatra/base'
-require './config/environment'
 require 'rack-flash'
+require './config/environment'
+
 
 class ApplicationController < Sinatra::Base
 
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    enable :sessions
     use Rack::Flash
+    enable :sessions
 		set :session_secret, "kener_secret" # --encryption key that will be used to create a
   end
 
