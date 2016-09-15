@@ -1,3 +1,6 @@
+<% if flash.has?(:error) %>
+  <%= flash[:error] %>
+<% end %>
 <h3>Enter only one key word.</h3>
 
 <form action="/users_questions" method="POST" class="">

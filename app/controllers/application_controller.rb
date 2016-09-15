@@ -6,11 +6,11 @@ require './config/environment'
 class ApplicationController < Sinatra::Base
 
   configure do
+    enable :sessions
+    use Rack::Flash
+    set :session_secret, "kener_secret" # --encryption key that will be used to create a
     set :public_folder, 'public'
     set :views, 'app/views'
-    use Rack::Flash
-    enable :sessions
-		set :session_secret, "kener_secret" # --encryption key that will be used to create a
   end
 
   # --home page for website

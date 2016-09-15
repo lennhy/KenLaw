@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  use Rack::Flash
 
   # -- takes you to the signup page from the home page for new users
   get "/signup" do

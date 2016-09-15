@@ -2,8 +2,7 @@
   <%= flash[:message] %>
 <% end %>
 <h3>Welcome,<%= current_user.username %></h3>
-<h4>All posted questions</h4>
-<h4>Questions:</h4>
+<h4>Posted Questions:</h4>
 <ul>
   <% @questions.each do |q| %>
       <a href="/users/<%=q.user_id%>"><li><%= q.content %></li><a>
