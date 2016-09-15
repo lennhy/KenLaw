@@ -1,3 +1,3 @@
-# KenLaw
-A CRUD Web App that allows users to make a query that relates to the US Constitution's Articles of Amendments.
-The results can be saved, deleted, and edited to store in the users profile.
+To use this app, just clone, run rake db:migrate and then run shotgun. Everything should be set up.
+
+View Golf Clubber on Learn.co and start learning to code for free.
