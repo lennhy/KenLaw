@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 
   # -- see all the posted questions from every user
   get "/users_questions" do
-    if Helper.is_logged_in?(session)
+    if is_logged_in?(session)
       @questions = Question.all
       erb :"questions/users_questions"
     else
