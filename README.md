@@ -5,6 +5,10 @@
 
 #Instructions:
 
-To use this app, just clone, run rake db:migrate and then run shotgun. Everything should be set up.
+  To use this app, just clone, run rake db:migrate and then run shotgun. Everything should be set up.
 
-View Golf Clubber on Learn.co and start learning to code for free.
+  View Golf Clubber on Learn.co and start learning to code for free.
+
+#Links
+
+  Here is the link to the a quick video tutorial: https://vimeo.com/182806199
