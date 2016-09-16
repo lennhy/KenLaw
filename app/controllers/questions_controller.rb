@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-# ------------------------- GET --------------------------------
+# --------------------------- READ --------------------------------
 
   # -- see all the posted questions from every user
   get "/users_questions" do
@@ -22,6 +22,8 @@ class QuestionsController < ApplicationController
     end
   end
 
+  # --------------------------- CREATE --------------------------------
+
   # -- get the create a question page
   get '/users_questions/create_question' do
     if logged_in?
@@ -30,8 +32,6 @@ class QuestionsController < ApplicationController
        redirect to '/login'
      end
   end
-
-  # ------------------------- GET --------------------------------
 
   # -- see the questions of the individual user
   post '/users_questions' do
@@ -65,6 +65,8 @@ class QuestionsController < ApplicationController
     end
   end
 
+  # --------------------------- UPDATE --------------------------------
+
   # -- change question
   get '/users_questions/:id/edit' do
     if logged_in?
@@ -94,6 +96,8 @@ class QuestionsController < ApplicationController
       redirect to "/users_questions/#{@question.id}"
     end
   end
+
+  # --------------------------- DELETE --------------------------------
 
   # --delete question and corresponding amendment result
   delete '/users_questions/:id/delete' do

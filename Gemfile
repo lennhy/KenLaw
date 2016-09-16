@@ -8,7 +8,7 @@ gem 'require_all'
 gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
-gem 'pry'
+gem 'pry', :group => 'development'
 gem 'rack-flash3'
 gem 'bcrypt'
 gem "tux"
