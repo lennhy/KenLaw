@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
   get "/user_questions" do
     if logged_in?
       @user = current_user
+      @question = @user.questions
       erb :"questions/user_questions"
     else
       redirect "/login"
@@ -33,7 +34,7 @@ class QuestionsController < ApplicationController
      end
   end
 
-  # -- see the questions of the individual user
+  # -- create and see the questions of the individual user
   post '/users_questions' do
     if params[:content] == "" # --check if the user entered correct information if not redirect
       redirect to "/users_questions/create_question"
@@ -47,14 +48,20 @@ class QuestionsController < ApplicationController
         redirect to "/users_questions/create_question"
       else
       # -- associate the amendment that was returned to belong to the question
-        @question.amendments << @amendment
+        @question.question_amendments << @amendment
         @question.save
+
+        # -- associate the amendment that was returned to belong to the user
+        @user = current_user
+        @user.question_amendments <<  @amendment
+        @user.save
         redirect to "/users_questions/#{@question.id}"
       end
 
     end
   end
-
+  #  @question.question_amendments = ["question_id", 5]]
+# @question.question_amendment_ids
   # -- see the newly created question and its corresponding amendment result from the search
   get '/users_questions/:id' do
     if logged_in?
@@ -87,11 +94,11 @@ class QuestionsController < ApplicationController
       redirect to "/questions/#{params[:id]}/edit"
     else
       @question = current_question
-      @question.amendments.clear
+      @question.question_amendments.clear
       @question.content = params[:content]
       @search = params[:content]
       @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@search}%'")
-      @question.amendments << @amendment
+      @question.question_amendments << @amendment
       @question.save
       redirect to "/users_questions/#{@question.id}"
     end
@@ -105,7 +112,7 @@ class QuestionsController < ApplicationController
       @question = current_question
       if @question.user_id == session[:user_id]
         @question.delete
-        @question.amendments.delete
+        @question.question_amendments.delete
         redirect to '/user_questions'
       else
         redirect to '/users_questions'
