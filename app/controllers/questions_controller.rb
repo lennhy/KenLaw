@@ -48,13 +48,8 @@ class QuestionsController < ApplicationController
         redirect to "/users_questions/create_question"
       else
       # -- associate the amendment that was returned to belong to the question
-        @question.question_amendments << @amendment
+        @question.amendments << @amendment
         @question.save
-
-        # -- associate the amendment that was returned to belong to the user
-        @user = current_user
-        @user.question_amendments <<  @amendment
-        @user.save
         redirect to "/users_questions/#{@question.id}"
       end
 

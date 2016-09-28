@@ -1,4 +1,4 @@
 class QuestionAmendment < ActiveRecord::Base
-  belongs_to :questions
-  belongs_to :amendments
+  belongs_to :question
+  belongs_to :amendment
 end
