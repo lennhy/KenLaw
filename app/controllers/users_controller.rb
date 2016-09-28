@@ -47,6 +47,7 @@ class UsersController < ApplicationController
   get "/users/:id" do
     if logged_in?
       @user = User.find_by_id(params[:id])
+      @amendments = @user.amendments
       erb :'users/show'
     else
       redirect to '/login'
