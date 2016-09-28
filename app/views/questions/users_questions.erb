@@ -1,5 +1,7 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
+<% if !flash[:message].blank? %>
+  <div class = "message">
+    <%= flash[:message] %>
+  </div>
 <% end %>
 <h3>Welcome,<%= current_user.username %></h3>
 <h4>Posted Questions:</h4>

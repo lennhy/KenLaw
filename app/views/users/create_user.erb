@@ -1,6 +1,9 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
+<% if !flash[:message].blank? %>
+  <div class = "message">
+    <%= flash[:message] %>
+  </div>
 <% end %>
+
 <h3>Sign Up</h3>
 <form action="/signup" method="POST">
 

@@ -1,5 +1,7 @@
-<% if flash.has?(:error) %>
-  <%= flash[:error] %>
+<% if !flash[:error].blank? %>
+  <div class = "error">
+    <%= flash[:error] %>
+  </div>
 <% end %>
 <h3>Enter only one key word.</h3>
 
