@@ -2,4 +2,6 @@
 
 <%@user.questions.each_with_index do |question, i| %>
   <p><%= "#{i+1}." %><%=question.content%></p>
+  <p><%= "#{i+1}." %><%=question.amendments.content%></p>
+
 <%end%>

@@ -5,8 +5,10 @@
 <% end %>
 <h3>Welcome,<%= current_user.username %></h3>
 <h4>Posted Questions:</h4>
-<ul>
+
   <% @questions.each do |q| %>
-      <a href="/users/<%=q.user_id%>"><li><%= q.content %></li><a>
+    <a href="/users/<%=q.user_id%>"><h4><%= q.user.username %><h4></a>
+    <ul>
+      <li><h5><%= q.content %></h5></li>
+    </ul><br>
   <% end %>
-</ul>

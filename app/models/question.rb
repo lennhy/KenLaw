@@ -1,6 +1,5 @@
 class Question < ActiveRecord::Base
-  has_many :amendments
   belongs_to :user
-
-
+  has_many :question_amendments
+  has_many :amendments, through: :question_amendments
 end
