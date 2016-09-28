@@ -7,10 +7,8 @@
 <h4>Posted Questions:</h4>
 
   <% @questions.each do |q| %>
-    <%if q.user%>
       <a href="/users/<%=q.user_id%>"><h4><%= q.user.username %><h4></a>
       <ul>
         <li><h5><%= q.content %></h5></li>
     </ul><br>
-    <%end%>
   <% end %>
