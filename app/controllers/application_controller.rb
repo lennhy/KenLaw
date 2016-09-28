@@ -35,8 +35,7 @@ class ApplicationController < Sinatra::Base
 
   end
 
-  #--You can see a lot of information if you are logged in, and practically none if you're not.
-  # --Instead of writing that type of logic directly in your view, we use helper methods. Helper methods are methods that are written in your controller, that are accessible in your views, and provide some support.
+  # --Instead of writing this type of logic directly in your view, we use helper methods. Helper methods are methods that are written in your controller, that are accessible in your views, and provide some support.
 
 
 end
