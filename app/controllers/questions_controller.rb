@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
 
   # -- see all the posted questions from every user
   get "/users_questions" do
-    if logged_in? 
+    if logged_in?
       @questions = Question.all
       erb :"questions/users_questions"
     else
@@ -44,7 +44,10 @@ class QuestionsController < ApplicationController
       # -- find the closest matching amendment for the search entered in the create a question page
       @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@search}%'")
 
-      if !@amendment
+      # arr_search = params[:content].split
+      # @amendment = arr_search.map { |word| Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@word}%'") }
+
+      if @amendment.nil? || @amendment == ""
         redirect to "/users_questions/create_question"
       else
       # -- associate the amendment that was returned to belong to the question
