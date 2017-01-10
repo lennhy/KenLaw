@@ -1,7 +1,7 @@
 <h3>My Questions:</h3>
   <ul>
     <%@user.questions.each_with_index do |q, i|%>
-          <h5><%= "#{i+1}." %> <%= q.content %></h5>
+          <h5><%= "#{i+1}." %> <%= q.content unless q == nil %></h5>
 
           <form action="/users_questions/<%=q.id%>/delete" method="POST">
             <input id="hidden" type="hidden" name="_method" value="DELETE">

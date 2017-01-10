@@ -12,7 +12,6 @@ gem 'pry', :group => 'development'
 gem 'rack-flash3'
 gem 'bcrypt'
 gem "tux"
-gem 'sprockets'
 
 group :test do
   gem 'rspec'
