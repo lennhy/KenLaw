@@ -12,9 +12,9 @@
   </div>
 </form>
 <div>
-  <div class = "amendments">
+  <ul class = "amendments">
   <% @amendments.each_with_index do |a, i| %>
-    <div id='<%="#{i+1}"%>'><%= "#{i+1}. " + a.name + a.content %></div><br>
+    <li><%= "#{i+1}. " + a.name + a.content %></li><br>
   <% end %>
-  </div>
+</ul>
 </div>
