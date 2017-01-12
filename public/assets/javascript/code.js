@@ -10,16 +10,18 @@ function Amendments(elementNodes, searchText) {
 
 Amendments.prototype.filterAmendments = function(){
   var regex = new RegExp(this.searchText);
-  console.log(regex);
 
+  var list = document.getElementsByClassName('amendments');
+  var result = [];
   for(let i=0; i < this.textNodes.length; i++){
     var textNode = this.textNodes[i].innerHTML;
-    cleanTextNode = textNode.replace(/;/g, " ");
+    var cleanTextNode = textNode.replace(/;/g, " ");
+
     if(regex.test(cleanTextNode)){
-      console.log(textNode);
+       result.push("<li>"+ textNode + "</li>");
     }
   }
-  
+list[0].innerHTML = result;
 }
 
 // Dynamically update the DOM or console every time user enters a key
