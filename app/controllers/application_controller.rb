@@ -30,6 +30,7 @@ class ApplicationController < Sinatra::Base
       end
 
       def logged_in?
+        # --two negatives make a positive
         !!session[:user_id]
       end
 
