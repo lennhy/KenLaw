@@ -1,0 +1,24 @@
+class AmendmentsController < ApplicationController
+
+  # -- get the create a question page
+  get '/amendments' do
+    @amendments = Amendment.all
+    if logged_in?
+       erb :"amendments/amendments"
+     else
+       redirect to '/login'
+     end
+  end
+
+  # -- see the newly created question and its corresponding amendment result from the search
+  get '/amendments/:id' do
+    if logged_in?
+      @amendment = current_amendment
+      erb :'amendments/show_amendment'
+    else
+      redirect to '/login'
+    end
+  end
+
+
+end

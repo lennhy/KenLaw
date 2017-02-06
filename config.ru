@@ -16,6 +16,7 @@ end
 
 use Rack::MethodOverride
 
+use AmendmentsController
 use QuestionsController
 use UsersController
 run ApplicationController

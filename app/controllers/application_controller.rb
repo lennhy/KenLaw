@@ -29,6 +29,10 @@ class ApplicationController < Sinatra::Base
         Question.find_by_id(params[:id])
       end
 
+      def current_amendment
+        Amendment.find_by_id(params[:id])
+      end
+
       def logged_in?
         # --two negatives make a positive
         !!session[:user_id]

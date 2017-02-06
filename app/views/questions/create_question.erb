@@ -3,18 +3,11 @@
     <%= flash[:error] %>
   </div>
 <% end %>
-<h3>Enter only one key word.</h3>
+<h3>Ask a Question.</h3>
 
 <form  action="/users_questions" method="POST">
   <div class="form-group">
-    <input type "search" id ="searchBox" name="content" id="content" class="form-control" >
+    <input type "text" id ="question" name="content" class="form-control" >
     <button type="submit" class="btn btn-default">Submit</button>
   </div>
 </form>
-<div>
-  <ol class = "amendments">
-    <% @amendments.each_with_index do |a, i| %>
-      <li><%= "#{a.name}: " + a.content %></li><br>
-    <% end %>
-  </ol>
-</div>

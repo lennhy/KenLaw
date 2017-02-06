@@ -27,7 +27,6 @@ class QuestionsController < ApplicationController
 
   # -- get the create a question page
   get '/users_questions/create_question' do
-    @amendments = Amendment.all
     if logged_in?
        erb :"questions/create_question"
      else
