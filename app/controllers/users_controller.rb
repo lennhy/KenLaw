@@ -43,12 +43,21 @@ class UsersController < ApplicationController
     end
   end
 
+  # --show current_user profile
+  get "/profile" do
+    if logged_in?
+      erb :"users/profile"
+    else
+      redirect "/login"
+    end
+  end
+
   # -- show users page of question posted by id
   get "/users/:id" do
     if logged_in?
       @user = User.find_by_id(params[:id])
-      @amendments = @user.amendments
       erb :'users/show'
+
     else
       redirect to '/login'
     end
@@ -60,6 +69,35 @@ class UsersController < ApplicationController
       redirect to "/login"
     else
       redirect to "/"
+    end
+  end
+
+  # # # -- show users page of question posted by id
+  # # get "/users/:id/amendments" do
+  # #   if logged_in?
+  # #     # @user = User.find_by_id(params[:id])
+  # #     # @amendments = @user.amendments
+  # #     erb :'users/show'
+  # #   else
+  # #     redirect to '/login'
+  # #   end
+  # # end
+  # # --see your own questions
+  # get "/user_amendments" do
+  #   if logged_in?
+  #     current_user
+  #     current_user.amendments
+  #     erb :"users/show"
+  #   else
+  #     redirect "/login"
+  #   end
+  # end
+
+  # Add an amendment to user
+  patch "/users/amendment/:id" do
+    if logged_in?
+      current_user.amendments << current_amendment
+      erb :'users/profile'
     end
   end
 

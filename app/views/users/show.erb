@@ -1,10 +1,8 @@
 <h3><%= @user.username %></h3>
-
-<%@user.questions.each_with_index do |question, i| %>
-  <h4><%= "#{i+1}. Q. " %><%=question.content%></h4>
   <ul>
-    <%question.amendments.each do |a|%>
-       <li><b><%= "#{a.name} - "  %></b><%= a.content %></li>
-    <% end %>
+    <%@user.amendments.each_with_index do |user, i| %>
+    <li><%= "#{i+1}. A. " %><%=user.content%></li>
+  </ul>
+
   </ul>
 <%end%>

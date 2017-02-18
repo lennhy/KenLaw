@@ -1,0 +1,14 @@
+<h3> Profile</h3>
+<h5> Amendments</h5>
+  <ul>
+    <%current_user.amendments.each_with_index do |amendment, i| %>
+    <li><%= "#{i+1}. #{amendment.name}" %><%=amendment.content%></li>
+<%end%>
+</ul>
+
+<h5>Questions</h5>
+  <ul>
+    <%current_user.questions.each_with_index do |question, i| %>
+    <li><%= "#{i+1}. #{question.name} " %><%=question.content%></li>
+  </ul>
+<%end%>

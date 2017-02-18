@@ -1,14 +1,14 @@
-<!-- <% if !flash[:message].blank? %>
+<% if !flash[:message].blank? %>
   <div class = "message"> -->
-    <!-- <%= flash[:message] %> -->
-  <!-- </div>
-<% end %> -->
-<!-- <h3>Welcome,<%= current_user.username %></h3>
-<h4>Posted Questions:</h4> -->
+    <%= flash[:message] %>
+  </div>
+<% end %>
+<h3>Welcome,<%= current_user.username %></h3>
+<h4>Posted Questions:</h4>
 
-  <!-- <% @questions.each do |q| %>
-      <a href="/users/<%=q.user_id%>"><h4><%= q.user.username %><h4></a>
-      <ul>
-        <li><h5><%= q.content %></h5></li>
-    </ul><br> -->
-  <!-- <% end %> -->
+<% @questions.each do |q| %>
+    <a href="/users/<%=q.user_id%>"><h4><%= q.user.username %><h4></a>
+    <ul>
+      <li><h5><%= q.content %></h5></li>
+    </ul><br>
+<% end %>

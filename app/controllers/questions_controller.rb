@@ -12,16 +12,18 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # --see your own questions
-  get "/user_questions" do
-    if logged_in?
-      @user = current_user
-      @question = @user.questions
-      erb :"questions/user_questions"
-    else
-      redirect "/login"
-    end
-  end
+  # # --see your own questions
+  # get "/user_questions" do
+  #   if logged_in?
+  #     current_user
+  #     current_user.questions
+  #     erb :"questions/user_questions"
+  #   else
+  #     redirect "/login"
+  #   end
+  # end
+
+
 
   # --------------------------- CREATE --------------------------------
 
@@ -41,23 +43,6 @@ class QuestionsController < ApplicationController
       redirect to "/users_questions/create_question"
     else
       @question = current_user.questions.create(content: params[:content])
-      # user entered search query
-      # @arr_search = params[:content].split
-      # @result = ''
-      # regex
-      # reg = /\bthis|\bi|\bthe|\bhim|\bhe|\bshe|\bthey|\bare|\bis|\byou|\bit/i
-
-      # @arr_search.each_with_index do |word, i|
-      #   # only if word does not match regex then use that word in the code below
-      #   unless word.match(/\bthis\b|\bi\b|\bthe\b|\bhim\b|he\b|\bshe\b|\bthey\b|\bare\b|\bis\b|\byou\b|\bit\b/i)
-      #     if @arr_search.length-1 == i
-      #       @result += "Name LIKE '%#{word}%' OR Content LIKE '%#{word}%'"
-      #     else
-      #       @result += "Name LIKE '%#{word}%' OR Content LIKE '%#{word}%' OR "
-      #     end
-      #   end
-      # end
-      # @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE " + @result)
       @search = params[:content]
       # find the closest matching amendment for the search entered in the create a question page
       @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@search}%'")
