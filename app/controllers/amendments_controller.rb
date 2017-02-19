@@ -27,10 +27,10 @@ class AmendmentsController < ApplicationController
         current_amendment.id = params[:id]
       if current_amendment.user_id == session[:user_id]
         current_amendment.delete
-        flash[:notice] = 'Your question was successfully deleted'
-        erb :'/'
+        flash[:notice] = 'Your amendment was successfully deleted'
+        erb :'users/profile'
       else
-        flash[:error] 
+        flash[:error]
         redirect to '/profile'
       end
     end
