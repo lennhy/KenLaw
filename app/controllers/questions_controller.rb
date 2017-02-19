@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
   # --------------------------- CREATE --------------------------------
 
   # -- get the create a question page
-  get '/users_questions/create_question' do
+  get '/create_question' do
     if logged_in?
        erb :"questions/create_question"
      else
@@ -40,18 +40,17 @@ class QuestionsController < ApplicationController
   post '/users_questions' do
 
     if params[:content] == "" # --check if the user entered correct information if not redirect
-      redirect to "/users_questions/create_question"
+      redirect to "/create_question"
     else
       @question = current_user.questions.create(content: params[:content])
-      @search = params[:content]
-      # find the closest matching amendment for the search entered in the create a question page
-      @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@search}%'")
+      # @search = params[:content]
+      # # find the closest matching amendment for the search entered in the create a question page
+      # @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@search}%'")
 
-      if @amendment.nil? || @amendment == ""
-        redirect to "/users_questions/create_question"
+      if @question.nil? || @q == ""
+        redirect to "/create_question"
       else
       # -- associate the amendment that was returned to belong to the question
-        @question.amendments << @amendment
         @question.save
         redirect to "/users_questions/#{@question.id}"
       end
@@ -112,14 +111,16 @@ class QuestionsController < ApplicationController
   # --delete question and corresponding amendment result
   delete '/users_questions/:id/delete' do
     if logged_in?
-      @question = current_question
-      if @question.user_id == session[:user_id]
-        @question.delete
-        @question.amendments.delete
-        redirect to '/user_questions'
+      binding.pry
+      if current_question != "" || current_question != nil
+        current_question.id = params[:id]
+      if current_question.user_id == session[:user_id]
+        current_question.delete
+        redirect to '/'
       else
-        redirect to '/users_questions'
+        redirect to 'questions/show_question'
       end
+    end
     else
       redirect to '/login'
     end
