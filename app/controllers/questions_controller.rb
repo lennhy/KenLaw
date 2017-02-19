@@ -89,21 +89,10 @@ class QuestionsController < ApplicationController
     if params[:content] == "" # --check if the user entered correct information if not redirect
       redirect to "/users_questions/create_question"
     else
-      @question = current_user.questions.create(content: params[:content])
-      @search = params[:content]
-      # -- find the closest matching amendment for the search entered in the create a question page
-      @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@search}%'")
-
-      if !@amendment
-        redirect to "/users_questions/create_question"
-      else
+      current_question.update(content: params[:content])      # -- find the closest matching amendment for the search entered in the create a question page
       # -- associate the amendment that was returned to belong to the question
-        @question.amendments << @amendment
-        @question.save
-        redirect to "/users_questions/#{@question.id}"
+      redirect to "/users_questions/#{current_question.id}"
       end
-
-    end
   end
 
   # --------------------------- DELETE --------------------------------
@@ -111,7 +100,6 @@ class QuestionsController < ApplicationController
   # --delete question and corresponding amendment result
   delete '/users_questions/:id/delete' do
     if logged_in?
-      binding.pry
       if current_question != "" || current_question != nil
         current_question.id = params[:id]
       if current_question.user_id == session[:user_id]
