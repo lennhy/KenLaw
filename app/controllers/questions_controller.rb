@@ -104,9 +104,11 @@ class QuestionsController < ApplicationController
         current_question.id = params[:id]
       if current_question.user_id == session[:user_id]
         current_question.delete
-        redirect to '/'
+        flash[:notice] = 'Your question was successfully deleted'
+        erb :'users/profile'
       else
-        redirect to 'questions/show_question'
+        flash[:error]
+        redirect to '/profile'
       end
     end
     else

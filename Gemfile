@@ -10,6 +10,7 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry', :group => 'development'
 gem 'rack-flash3'
+gem 'sinatra-redirect-with-flash'
 gem 'bcrypt'
 gem "tux"
 

@@ -20,5 +20,23 @@ class AmendmentsController < ApplicationController
     end
   end
 
+  # --delete question and corresponding amendment result
+  delete '/users_amendments/:id/delete' do
+    if logged_in?
+      if current_amendment != "" || current_amendment != nil
+        current_amendment.id = params[:id]
+      if current_amendment.user_id == session[:user_id]
+        current_amendment.delete
+        flash[:notice] = 'Your question was successfully deleted'
+        erb :'/'
+      else
+        flash[:error] 
+        redirect to '/profile'
+      end
+    end
+    else
+      redirect to '/login'
+    end
+  end
 
 end
