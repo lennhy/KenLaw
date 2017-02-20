@@ -2,56 +2,33 @@ class QuestionsController < ApplicationController
 
 # --------------------------- READ --------------------------------
 
-  # # -- see all the posted questions from every user
-  # get "/users_questions" do
-  #   if logged_in?
-  #     @questions = Question.all
-  #     erb :"questions/users_questions"
-  #   else
-  #     redirect "/login"
-  #   end
-  # end
-
-  # # --see your own questions
-  # get "/user_questions" do
-  #   if logged_in?
-  #     current_user
-  #     current_user.questions
-  #     erb :"questions/user_questions"
-  #   else
-  #     redirect "/login"
-  #   end
-  # end
-
-
 
   # --------------------------- CREATE --------------------------------
 
   # -- get the create a question page
-  get '/create_question' do
+  get '/questions/new' do
     if logged_in?
-       erb :"questions/create_question"
+       erb :"questions/new"
      else
        redirect to '/login'
      end
   end
 
   # -- create and see the questions of the individual user
-  post '/users_questions' do
-
+  post '/' do
     if params[:content] == "" || params[:content] == nil # --check if the user entered correct information if not redirect
-      redirect to "/create_question"
+      redirect to "questions/new"
     else
       @question = current_user.questions.create(content: params[:content])
-      redirect to "/users_questions/#{@question.id}"
+      redirect to "users/profile"
     end
   end
 
   # -- see the newly created question and its corresponding amendment result from the search
-  get '/users_questions/:id' do
+  get '/questions/:id' do
     if logged_in?
-      @question = current_question
-      erb :'questions/show_question'
+      current_question
+      erb :'questions/show'
     else
       redirect to '/login'
     end
@@ -60,13 +37,13 @@ class QuestionsController < ApplicationController
   # --------------------------- UPDATE --------------------------------
 
   # -- change question
-  get '/users_questions/:id/edit' do
+  get '/questions/:id/edit' do
     if logged_in?
       @question = current_question
       if @question.user_id == current_user.id
-       erb :'questions/edit_question'
+       erb :'questions/edit'
       else
-        redirect to '/users_questions'
+        redirect to '/'
       end
     else
       redirect to '/login'
@@ -74,20 +51,21 @@ class QuestionsController < ApplicationController
   end
 
   # --edit question and return a new amendment result
-  patch '/users_questions/:id' do
-    if params[:content] == "" # --check if the user entered correct information if not redirect
-      redirect to "/users_questions/create_question"
+  patch '/questions/:id' do
+    # --check if the user entered correct information if not redirect
+    if params[:content] == ""
+      redirect to "/questions/:id/edit"
     else
-      current_question.update(content: params[:content])      # -- find the closest matching amendment for the search entered in the create a question page
+      current_question.update(content: params[:content])
       # -- associate the amendment that was returned to belong to the question
-      redirect to "/users_questions/#{current_question.id}"
+      redirect to "users/profile"
       end
   end
 
   # --------------------------- DELETE --------------------------------
 
   # --delete question and corresponding amendment result
-  delete '/users_questions/:id/delete' do
+  delete '/questions/:id/delete' do
     if logged_in?
       if current_question != "" || current_question != nil
         current_question.id = params[:id]
@@ -97,7 +75,7 @@ class QuestionsController < ApplicationController
         erb :'users/profile'
       else
         flash[:error]
-        redirect to '/profile'
+        redirect to 'users/profile'
       end
     end
     else

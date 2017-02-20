@@ -1,52 +1,58 @@
 <h3> Profile</h3>
-<h5> Amendments</h5>
-  <ul>
-    <%current_user.amendments.each_with_index do |amendment, i| %>
-    <li><a href='<%="amendments/#{i+1}"%>'>
-    <%= "#{i+1}. #{amendment.name}" %><%=amendment.content%></a></li>
 
+<h5> Amendments</h5>
+<ul>
+  <%current_user.amendments.each_with_index do |amendment, i| %>
+    <%= "#{i+1}. #{amendment.name}" %><%=amendment.content%></a></li>
     <!-- Option to delete amendment -->
     <form action="/users_amendments/<%=amendment.id%>/delete" method="POST">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
       <button type="submit" class="btn btn-default">Delete Question</button>
     </form>
-
-<%end%>
+  <%end%>
 </ul>
 
-<h5>Questions</h5>
-  <ul>
-    <%current_user.questions.each_with_index do |question, i| %>
-    <li><a href='<%="users_questions/#{i+1}"%>'>
-    <%= "#{i+1}. #{question.content} " %></a></li>
 
+
+
+<h5>Questions</h5>
+<ul>
+  <%current_user.questions.each_with_index do |question, i| %>
+    <%= "#{i+1}. #{question.content} " %></a></li>
     <!-- Option to delete question -->
-    <form action="/users_questions/<%=question.id%>/delete" method="POST">
+    <form action="/questions/<%=question.id%>/delete" method="POST">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
       <button type="submit" class="btn btn-default">Delete Question</button>
     </form>
-
     <!-- Option to edit question -->
-    <button type="submit" class="btn btn-default"><a href="/users_questions/<%=question.id%>/edit">Edit Question</a></button>
+    <button type="submit" class="btn btn-default"><a href="/questions/<%=question.id%>/edit">Edit Question</a></button>
+
+    <% question.comments.each_with_index do |comment, i| %>
+      <% if comment.content %>
+          <li class="list-group-item"><h5><%= "#{comment.user.username}: #{comment.content}" %></h5></li>
+      <% end %>
+
+
+    <% end %>
+
+
+  <% end %>
+</ul>
 
 
 
-  </ul>
-  <h5>Comments</h5>
-  <ul>
-
-  <%current_user.comments.each_with_index do |comment, i| %>
-  <li><%= "#{comment.user.username}: " + comment.content %></li>
-    <!-- Option to delete question -->
-    <form action="/users_comments/<%=comment.id%>/delete" method="POST">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <button type="submit" class="btn btn-default">Delete Comment</button>
-    </form>
-
-    <!-- Option to edit question -->
-    <button type="submit" class="btn btn-default"><a href="/users_comments/<%=comment.id%>/edit">Edit Comment</a></button><% end %>
-
-  </ul>
 
 
-  <%end%>
+<h5>Comments</h5>
+<ul>
+<%current_user.comments.each_with_index do |comment, i| %>
+<li><%= "#{comment.user.username}: " + comment.content %></li>
+  <!-- Option to delete comment -->
+  <form action="/comments/<%=comment.id%>/delete" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-default">Delete Comment</button>
+  </form>
+  <!-- Option to edit comment -->
+  <button type="submit" class="btn btn-default"><a href="/comments/<%=comment.id%>/edit">Edit Comment</a></button>
+<%end%>
+</ul>

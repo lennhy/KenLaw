@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if !logged_in? # -- if user is not logged in
      erb :"users/create_user"
    else
-     redirect to "/users_questions" # -- if user is already logged in then they should not see the signup page
+     redirect to "/" # -- if user is already logged in then they should not see the signup page
    end
   end
 
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       @user = User.create(email: params[:email], username: params[:username], password: params[:password])
       session[:user_id] = @user.id
       flash[:message] = "You have successfully signed up."
-      redirect to "/users_questions"
+      redirect to "/"
     end
   end
 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       erb :"users/login"
     else
       flash[:message] = "You have successfully logged in."
-      redirect "/users_questions"
+      redirect "/"
     end
   end
 
@@ -37,23 +37,14 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password]) # --check if username and password matches
       session[:user_id] = user.id
-      redirect to "/users_questions"
+      redirect to "/"
     else
       redirect to "/login"
-    end
-  end
-
-  get "/users_questions" do
-    if !logged_in?
-      redirect to "/login"
-    else
-      @users = User.all
-      erb  :"questions/users_questions"
     end
   end
 
   # --show current_user profile
-  get "/profile" do
+  get "/users/profile" do
     if logged_in?
       erb :"users/profile"
     else
@@ -80,29 +71,6 @@ class UsersController < ApplicationController
       redirect to "/"
     end
   end
-
-
-
-  # # # -- show users page of question posted by id
-  # # get "/users/:id/amendments" do
-  # #   if logged_in?
-  # #     # @user = User.find_by_id(params[:id])
-  # #     # @amendments = @user.amendments
-  # #     erb :'users/show'
-  # #   else
-  # #     redirect to '/login'
-  # #   end
-  # # end
-  # # --see your own questions
-  # get "/user_amendments" do
-  #   if logged_in?
-  #     current_user
-  #     current_user.amendments
-  #     erb :"users/show"
-  #   else
-  #     redirect "/login"
-  #   end
-  # end
 
   # Add an amendment to user
   patch "/users/amendment/:id" do

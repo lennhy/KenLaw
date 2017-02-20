@@ -6,30 +6,36 @@
   <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Kener</title>
+  <title>Kenerr - Look up and save amendments from the US Constitution's Articles of Amendments and ask questions about your rights.</title>
 </head>
 <body>
-  <% if flash[:notice] %>
+  <% if !flash[:message].blank? %>
+    <div class = "message"> -->
+      <%= flash[:message] %>
+    </div>
+  <% end %>
+
+  <!-- <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
   <% end %>
   <% if flash[:error] %>
   <div class="notice"><%= flash[:error] %></div>
-  <% end %>
+  <% end %> -->
 
   <!-- start of navbar -->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- start of left side of navbar -->
       <div class="navbar-header-centered">
-        <a class="navbar-brand" href="/users_questions">Kener</a>
+        <a class="navbar-brand" href="/">Kener</a>
       </div>
 
       <div class="collapse navbar-collapse" id="myNavbar">
         <!-- start of menu on left side of navbar -->
         <ul class="nav navbar-nav">
           <% if logged_in? %>
-          <li><a href="/profile"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
-          <li><a href="/create_question"><span class="glyphicon glyphicon-question-sign"></span>Ask a Question</a></li>
+          <li><a href="/users/profile"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+          <li><a href="/questions/new"><span class="glyphicon glyphicon-question-sign"></span>Ask a Question</a></li>
           <li><a href="/amendments"><span class="glyphicon glyphicon-question-sign"></span>Search Amendments</a></li>
           <% else %>
           <% end %>

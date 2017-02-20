@@ -1,6 +1,6 @@
 #Kener
 
-##A CRUD Web App that allows users to make a query from the US Constitution's Articles of Amendments.
+##A CRUD Web App where uses can look up and save amendments from the US Constitution's Articles of Amendments and ask questions about your rights.
 
 
 ###Instructions:

@@ -1,0 +1,43 @@
+<h3>Welcome,<%= current_user.username %></h3>
+<h4>Posted Questions:</h4>
+
+<% @users.each do |user| %>
+<div class="row">
+  <div class="col-md-12">
+
+    <ul class="list-group">
+      <% if user.questions != [] %>
+          <li class="list-group-item"><h5><a href="/users/<%=user.id%>"><h4><%= user.username %><h4></a></h5></li>
+
+          <!--  Display questions -->
+          <% user.questions.each do |question| %>
+              <% if question.content %>
+                  <li class="list-group-item"><h5><%= question.content %></h5></li>
+              <% end %>
+
+              <!-- Add comment  -->
+              <% if user.id != current_user.id %>
+                <form action="/comments" method="POST">
+                  <div class="form-group">
+                    <input type="hidden" name="id"  value="<%=question.id%>">
+                    <input type "text" id ="comment" name="content" class="form-control" placeholder="Add a comment">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </div>
+                </form>
+              <% end %>
+
+              <!--  Display comments -->
+              <% question.comments.each_with_index do |comment, i| %>
+                <% if comment.content %>
+                    <li class="list-group-item"><h5><%= "#{comment.user.username}: #{comment.content}" %></h5></li>
+                <% end %>
+              <% end %>
+          <!-- user.questions iterator-->
+          <% end %>
+
+
+      <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

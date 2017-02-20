@@ -1,11 +1,5 @@
-<% if !flash[:error].blank? %>
-  <div class = "error">
-    <%= flash[:error] %>
-  </div>
-<% end %>
 <h3>Ask a Question.</h3>
-
-<form  action="/users_questions" method="POST">
+<form action="/" method="POST">
   <div class="form-group">
     <input type "text" id ="question" name="content" class="form-control" >
     <button type="submit" class="btn btn-default">Submit</button>

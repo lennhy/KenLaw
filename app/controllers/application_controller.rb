@@ -15,7 +15,12 @@ class ApplicationController < Sinatra::Base
 
   # --home page for website
   get "/" do
-    erb :index
+    if !logged_in?
+      redirect to "/login"
+    else
+      @users = User.all
+      erb  :"questions/questions"
+    end
   end
 
   # -- helper method
