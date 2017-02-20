@@ -25,6 +25,10 @@ class ApplicationController < Sinatra::Base
         User.find(session[:user_id])
       end
 
+      def current_comment
+        Comment.find_by_id(params[:id])
+      end
+
       def current_question
         Question.find_by_id(params[:id])
       end

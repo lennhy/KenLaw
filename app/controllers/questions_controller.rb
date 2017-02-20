@@ -2,15 +2,15 @@ class QuestionsController < ApplicationController
 
 # --------------------------- READ --------------------------------
 
-  # -- see all the posted questions from every user
-  get "/users_questions" do
-    if logged_in?
-      @questions = Question.all
-      erb :"questions/users_questions"
-    else
-      redirect "/login"
-    end
-  end
+  # # -- see all the posted questions from every user
+  # get "/users_questions" do
+  #   if logged_in?
+  #     @questions = Question.all
+  #     erb :"questions/users_questions"
+  #   else
+  #     redirect "/login"
+  #   end
+  # end
 
   # # --see your own questions
   # get "/user_questions" do
@@ -39,22 +39,11 @@ class QuestionsController < ApplicationController
   # -- create and see the questions of the individual user
   post '/users_questions' do
 
-    if params[:content] == "" # --check if the user entered correct information if not redirect
+    if params[:content] == "" || params[:content] == nil # --check if the user entered correct information if not redirect
       redirect to "/create_question"
     else
       @question = current_user.questions.create(content: params[:content])
-      # @search = params[:content]
-      # # find the closest matching amendment for the search entered in the create a question page
-      # @amendment = Amendment.find_by_sql("SELECT * FROM Amendments WHERE Name OR Content LIKE '%#{@search}%'")
-
-      if @question.nil? || @q == ""
-        redirect to "/create_question"
-      else
-      # -- associate the amendment that was returned to belong to the question
-        @question.save
-        redirect to "/users_questions/#{@question.id}"
-      end
-
+      redirect to "/users_questions/#{@question.id}"
     end
   end
 

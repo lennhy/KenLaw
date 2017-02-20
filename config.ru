@@ -19,4 +19,5 @@ use Rack::MethodOverride
 use AmendmentsController
 use QuestionsController
 use UsersController
+use CommentsController
 run ApplicationController

@@ -1,0 +1,11 @@
+<h3>Edit your question</h3>
+
+<form action="/users_comments/<%=@comment.id%>" method="POST">
+
+  <div class="form-group">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <input type="text" name="content" value="<%= @comment.content %>" class="form-control">
+    <button type="submit" class="btn btn-default">Submit</button>
+  </div>
+
+</form>

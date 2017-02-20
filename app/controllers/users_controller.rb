@@ -43,6 +43,15 @@ class UsersController < ApplicationController
     end
   end
 
+  get "/users_questions" do
+    if !logged_in?
+      redirect to "/login"
+    else
+      @users = User.all
+      erb  :"questions/users_questions"
+    end
+  end
+
   # --show current_user profile
   get "/profile" do
     if logged_in?
@@ -71,6 +80,8 @@ class UsersController < ApplicationController
       redirect to "/"
     end
   end
+
+
 
   # # # -- show users page of question posted by id
   # # get "/users/:id/amendments" do
