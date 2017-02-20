@@ -1,4 +1,4 @@
-<form  action="/users_questions" method="POST">
+<form>
   <div class="form-group">
     <input type "search" id ="searchBox" name="content" id="content" class="form-control" >
   </div>
@@ -6,10 +6,9 @@
 
 <div>
   <ol class = "amendments">
-    <% @amendments.each_with_index do |a, i| %>
-
-      <li><a href='<%="amendments/#{i+1}"%>'>
-        <%= "#{a.name}: " + a.content %>
+    <% @amendments.each_with_index do |amendment, i| %>
+      <li><a href='<%="/amendments/#{amendment.id}"%>'>
+        <%= "#{amendment.name}: " + amendment.content %>
       </a></li><br>
 
     <% end %>

@@ -2,8 +2,9 @@ class AmendmentsController < ApplicationController
 
   # -- get the create a question page
   get '/amendments' do
-    @amendments = Amendment.all
     if logged_in?
+      @amendments = Amendment.all
+
        erb :"amendments/amendments"
      else
        redirect to '/login'
@@ -14,26 +15,7 @@ class AmendmentsController < ApplicationController
   get '/amendments/:id' do
     if logged_in?
       @amendment = current_amendment
-      erb :'amendments/show_amendment'
-    else
-      redirect to '/login'
-    end
-  end
-
-  # --delete question and corresponding amendment result
-  delete '/users_amendments/:id/delete' do
-    if logged_in?
-      if current_amendment != "" || current_amendment != nil
-        current_amendment.id = params[:id]
-      if current_amendment.user_id == session[:user_id]
-        current_amendment.delete
-        flash[:notice] = 'Your amendment was successfully deleted'
-        erb :'users/profile'
-      else
-        flash[:error]
-        redirect to '/profile'
-      end
-    end
+      erb :'amendments/show'
     else
       redirect to '/login'
     end

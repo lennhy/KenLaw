@@ -5,13 +5,12 @@
   <%current_user.amendments.each_with_index do |amendment, i| %>
     <%= "#{i+1}. #{amendment.name}" %><%=amendment.content%></a></li>
     <!-- Option to delete amendment -->
-    <form action="/users_amendments/<%=amendment.id%>/delete" method="POST">
+    <form action="/users/amendment/<%=amendment.id%>/delete" method="POST">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <button type="submit" class="btn btn-default">Delete Question</button>
+      <button type="submit" class="btn btn-default">Delete Amendment</button>
     </form>
   <%end%>
 </ul>
-
 
 
 
@@ -31,15 +30,9 @@
       <% if comment.content %>
           <li class="list-group-item"><h5><%= "#{comment.user.username}: #{comment.content}" %></h5></li>
       <% end %>
-
-
     <% end %>
-
-
   <% end %>
 </ul>
-
-
 
 
 

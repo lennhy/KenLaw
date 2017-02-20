@@ -1,0 +1,13 @@
+<ul>
+  <li><%= "#{current_amendment.name}: " + current_amendment.content %></li>
+</ul>
+
+<form action="/users/amendment/<%=current_amendment.id%>" method="POST">
+
+  <div class="form-group">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <input type="hidden" name="content" value="<%= current_amendment.content %>" class="form-control">
+    <button type="submit" class="btn btn-default">Save</button>
+  </div>
+
+</form>

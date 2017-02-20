@@ -3,7 +3,7 @@
 <h4><%= current_question.content %></h4>
 
   <!-- Option to delete question -->
-  <form action="/users_questions/<%=current_question.id%>/delete" method="POST">
+  <form action="/questions/<%=current_question.id%>/delete" method="POST">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
     <button type="submit" class="btn btn-default">Delete Question</button>
   </form>
