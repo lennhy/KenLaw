@@ -76,31 +76,31 @@ class UsersController < ApplicationController
   patch "/users/amendment/:id" do
     if logged_in?
       current_user.amendments << current_amendment
-      erb :'users/profile'
+      flash[:notice] = "Amendment successfully added"
+      redirect to 'users/profile'
     end
   end
 
   # --delete amendment result
   delete '/users/amendment/:id/delete' do
     if logged_in?
-      if current_amendment != "" || current_amendment != nil
-        current_amendment.id = params[:id]
+      # if current_amendment != "" || current_amendment != nil
+      #   current_amendment.id = params[:id]
 
       if current_amendment.user_id == session[:user_id]
-        amendment = current_user.amendments.find_by_id(current_amendment.id)
-        # amendment = current_user.find_by_id(current_amendment.id)
 
-        current_amendment.delete
+        current_user.amendments.delete(Amendment.find(params[:id]))
+
         flash[:notice] = 'Your amendment was successfully deleted'
-        erb :'users/profile'
+        redirect to 'users/profile'
       else
         flash[:error]
-        redirect to 'user/profile'
+        erb '/'
       end
-    end
-    else
-      redirect to '/login'
-    end
+
+      else
+        redirect to '/login'
+      end
   end
 
 end

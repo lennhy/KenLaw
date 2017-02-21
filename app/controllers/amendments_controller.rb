@@ -4,7 +4,6 @@ class AmendmentsController < ApplicationController
   get '/amendments' do
     if logged_in?
       @amendments = Amendment.all
-
        erb :"amendments/amendments"
      else
        redirect to '/login'
@@ -21,4 +20,5 @@ class AmendmentsController < ApplicationController
     end
   end
 
+  
 end
