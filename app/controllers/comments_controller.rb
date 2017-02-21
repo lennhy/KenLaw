@@ -64,12 +64,11 @@ delete '/comments/:id/delete' do
   if logged_in?
 
     if current_comment != "" || current_comment != nil
-      binding.pry
       # current_comment.id = params[:id]
     if current_comment.user_id == session[:user_id]
       current_comment.delete
       flash[:notice] = 'Your comment was successfully deleted'
-      erb :'users/profile'
+      redirect to 'users/profile'
     else
       flash[:error]
       redirect to 'users/profile'

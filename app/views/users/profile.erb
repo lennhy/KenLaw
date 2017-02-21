@@ -40,6 +40,9 @@
 <ul>
 <%current_user.comments.each_with_index do |comment, i| %>
 <li><%= "#{comment.user.username}: " + comment.content %></li>
+  <% if comment.question %>
+    <li><%= "#{comment.question.user.username}: " + comment.question.content %></li>
+  <% end %>
   <!-- Option to delete comment -->
   <form action="/comments/<%=comment.id%>/delete" method="POST">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
