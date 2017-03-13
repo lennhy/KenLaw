@@ -81,12 +81,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # --delete amendment result
+  # --delete current user's amendment 
   delete '/users/amendment/:id/delete' do
     if logged_in?
-      # if current_amendment != "" || current_amendment != nil
-      #   current_amendment.id = params[:id]
-
       if current_amendment.user_id == session[:user_id]
 
         current_user.amendments.delete(Amendment.find(params[:id]))

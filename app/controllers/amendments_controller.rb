@@ -13,12 +13,11 @@ class AmendmentsController < ApplicationController
   # -- see the newly created question and its corresponding amendment result from the search
   get '/amendments/:id' do
     if logged_in?
-      @amendment = current_amendment
       erb :'amendments/show'
     else
       redirect to '/login'
     end
   end
 
-  
+
 end

@@ -1,12 +1,12 @@
 <ul>
-  <li><%= "#{@comment.user.username}: " + @comment.content %></li>
+  <li><%= "#{current_comment.user.username}: " + current_comment.content %></li>
 </ul>
 
-<form action="/users_comments/<%=@comment.id%>" method="POST">
+<form action="/users_comments/<%=current_comment.id%>" method="POST">
 
   <div class="form-group">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <input type="hidden" name="content" value="<%= @comment.content %>" class="form-control">
+    <input type="hidden" name="content" value="<%= current_comment.content %>" class="form-control">
   </div>
 
 </form>

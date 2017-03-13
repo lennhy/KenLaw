@@ -7,7 +7,6 @@ end
 # -- see all the posted comments from every user
 get "/comments/:id" do
 if logged_in?
-  @comment = current_comment
   erb :'comments/show'
 else
   redirect to '/login'
@@ -17,8 +16,7 @@ end
 # -- change question
 get '/comments/:id/edit' do
 if logged_in?
-  @comment = current_comment
-  if @comment.user_id == current_user.id
+  if current_comment.user_id == current_user.id
    erb :'comments/edit'
   else
     redirect to '/'
@@ -50,7 +48,6 @@ patch '/comments/:id' do
   if params[:content] == "" # --check if the user entered correct information if not redirect
     redirect to "users/profile"
   else
-    @comment = current_comment
     current_comment.update(content: params[:content])      # -- find the closest matching amendment for the search entered in the create a comment page
     # -- associate the amendment that was returned to belong to the comment
     redirect to "users/profile"

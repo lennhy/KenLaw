@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
     if params[:content] == "" || params[:content] == nil # --check if the user entered correct information if not redirect
       redirect to "questions/new"
     else
-      @question = current_user.questions.create(content: params[:content])
+      current_user.questions.create(content: params[:content])
       redirect to "users/profile"
     end
   end
@@ -39,8 +39,7 @@ class QuestionsController < ApplicationController
   # -- change question
   get '/questions/:id/edit' do
     if logged_in?
-      @question = current_question
-      if @question.user_id == current_user.id
+      if current_question.user_id == current_user.id
        erb :'questions/edit'
       else
         redirect to '/'
