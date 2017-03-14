@@ -13,8 +13,13 @@ gem 'sinatra-redirect-with-flash'
 gem 'bcrypt'
 gem "tux"
 
-group :production, :development do
+group :development do
+  gem 'sqlite3'
+end
+
+group :production do
   gem 'pg'
+  gem "activerecord-postgresql-adapter"
 end
 
 group :test do
