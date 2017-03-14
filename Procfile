@@ -1,1 +1,1 @@
-web: bundle exec rackup config.ru
+web: bundle exec shotgun config.ru -p 9393
