@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby '2.3.1'
 
 gem 'sinatra'
 gem 'activerecord', :require => 'active_record'
@@ -7,6 +8,7 @@ gem 'rake'
 gem 'require_all'
 gem 'thin'
 gem 'shotgun'
+gem 'puma'
 gem 'pry', :group => 'development'
 gem 'rack-flash3'
 gem 'sinatra-redirect-with-flash'
