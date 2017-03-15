@@ -1,54 +1,61 @@
-<h3> Profile</h3>
+<div class="jumbotron">
+  <h3> Profile</h3>
+</div>
 
-<h5> Amendments</h5>
-<ul>
-  <%current_user.amendments.each_with_index do |amendment, i| %>
-    <%= "#{i+1}. #{amendment.name}" %><%=amendment.content%></a></li>
-    <!-- Option to delete amendment -->
-    <form action="/users/amendment/<%=amendment.id%>/delete" method="POST">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <button type="submit" class="btn btn-default">Delete Amendment</button>
-    </form>
-  <%end%>
-</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h5> Amendments</h5>
+    <ul>
+      <%current_user.amendments.each_with_index do |amendment, i| %>
+        <li> <%= "#{i+1}. #{amendment.name}" %><%=amendment.content%></a></li>
+        <!-- Option to delete amendment -->
+        <form action="/users/amendment/<%=amendment.id%>/delete" method="POST">
+          <input id="hidden" type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-default">Delete Amendment</button>
+        </form>
+      <%end%>
+    </ul>
+  </li>
 
+  <li class="list-group-item">
+    <h5>Questions</h5>
+    <ul>
+      <%current_user.questions.each_with_index do |question, i| %>
+        <li><%= "#{i+1}. #{question.content} " %></a></li>
+        <!-- Option to delete question -->
+        <form action="/questions/<%=question.id%>/delete" method="POST">
+          <input id="hidden" type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-default">Delete Question</button>
+        </form>
+        <!-- Option to edit question -->
+        <button type="submit" class="btn btn-default"><a href="/questions/<%=question.id%>/edit">Edit Question</a></button>
 
-
-<h5>Questions</h5>
-<ul>
-  <%current_user.questions.each_with_index do |question, i| %>
-    <%= "#{i+1}. #{question.content} " %></a></li>
-    <!-- Option to delete question -->
-    <form action="/questions/<%=question.id%>/delete" method="POST">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <button type="submit" class="btn btn-default">Delete Question</button>
-    </form>
-    <!-- Option to edit question -->
-    <button type="submit" class="btn btn-default"><a href="/questions/<%=question.id%>/edit">Edit Question</a></button>
-
-    <% question.comments.each_with_index do |comment, i| %>
-      <% if comment.content %>
-          <li class="list-group-item"><h5><%= "#{comment.user.username}: #{comment.content}" %></h5></li>
+        <% question.comments.each_with_index do |comment, i| %>
+          <% if comment.content %>
+              <li class="list-group-item"><h5><%= "#{comment.user.username}: #{comment.content}" %></h5></li>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-</ul>
+    </ul>
+  </li>
 
+  <li class="list-group-item">
+    <h5>Comments</h5>
+    <ul>
+    <%current_user.comments.each_with_index do |comment, i| %>
+    <li><%= "#{comment.user.username}: " + comment.content %></li>
+      <% if comment.question %>
+        <li><%= "#{comment.question.user.username}: " + comment.question.content %></li>
+      <% end %>
+      <!-- Option to delete comment -->
+      <form action="/comments/<%=comment.id%>/delete" method="POST">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-default">Delete Comment</button>
+      </form>
+      <!-- Option to edit comment -->
+      <button type="submit" class="btn btn-default"><a href="/comments/<%=comment.id%>/edit">Edit Comment</a></button>
+    <%end%>
+    </ul>
+  </li>
 
-
-<h5>Comments</h5>
-<ul>
-<%current_user.comments.each_with_index do |comment, i| %>
-<li><%= "#{comment.user.username}: " + comment.content %></li>
-  <% if comment.question %>
-    <li><%= "#{comment.question.user.username}: " + comment.question.content %></li>
-  <% end %>
-  <!-- Option to delete comment -->
-  <form action="/comments/<%=comment.id%>/delete" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <button type="submit" class="btn btn-default">Delete Comment</button>
-  </form>
-  <!-- Option to edit comment -->
-  <button type="submit" class="btn btn-default"><a href="/comments/<%=comment.id%>/edit">Edit Comment</a></button>
-<%end%>
 </ul>

@@ -10,8 +10,8 @@
   <title>Kenerr know your rights</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 </head>
   <body>
     <% if flash[:notice] %>
@@ -26,7 +26,6 @@
       <title>Bootstrap Case</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
 
@@ -53,9 +52,10 @@
                 </ul>
               </li> -->
               <% if logged_in? %>
+                <li><a href="/"><span class="glyphicon glyphicon-list-alt"></span></span>Posted Questions</a></li>
                 <li><a href="/users/profile"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
                 <li><a href="/questions/new"><span class="glyphicon glyphicon-question-sign"></span>Ask a Question</a></li>
-                <li><a href="/amendments"><span class="glyphicon glyphicon-question-sign"></span>Search Amendments</a></li>
+                <li><a href="/amendments"><span class="glyphicon glyphicon-search"></span>Search Amendments</a></li>
               <% else %>
               <% end %>
             </ul>
@@ -73,7 +73,7 @@
       <!-- end of navbar -->
 
     <!-- start of body -->
-    <div class="container">
+    <div class="container-fluid">
       <%= yield %>
     </div>
     <footer></footer>
