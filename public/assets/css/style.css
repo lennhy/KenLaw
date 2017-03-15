@@ -3,7 +3,7 @@ body{
   font-family: 'Roboto';
   background-color: rgba(179, 175, 241, .1);
 }
-.error, .notice, .alert, .error, .message{
+.error, .notice, .alert, .message{
   width: 100%;
   padding: 20px;
   text-align: center;
