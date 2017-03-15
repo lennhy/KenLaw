@@ -3,16 +3,6 @@ body{
   font-family: 'Roboto';
   background-color: rgba(179, 175, 241, .1);
 }
-/*ul li.list-group-item {
-    width: 40%;
-    padding: 35px;
-    background-color: rgba(255, 255, 255, 1);
-    border: none;
-    box-shadow: 0 1px 1px -1px #A2A2A2;
-    display: inline-block;
-    color: #9C9C9C;
-    font-weight: 700;
-}*/
 .error, .notice, .alert, .error, .message{
   width: 100%;
   padding: 20px;
@@ -21,11 +11,11 @@ body{
   letter-spacing: .045em;
 }
 .error{
-  background:  #ff5252;
+  background: #ff5252;
   color:  #fff;
 }
 .message{
-  background: #197bce;
+  background: #FF4C6F;
   color:  #fff;
 }
 ul li.list-group-item {
