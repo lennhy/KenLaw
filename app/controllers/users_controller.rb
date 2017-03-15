@@ -2,23 +2,25 @@ class UsersController < ApplicationController
 
   # -- takes you to the signup page from the home page for new users
   get "/signup" do
-    if !logged_in? # -- if user is not logged in
+    # -- if user is not logged in
+    if !logged_in?
      erb :"users/create_user"
    else
-     redirect to "/" # -- if user is already logged in then they should not see the signup page
+     # -- if user is already logged in then they should not see the signup page
+     redirect to "/"
    end
   end
 
   # -- after attempt to signup
   post "/signup" do
-    if params[:email] =="" || params[:username] =="" || params[:password] ==""
-      redirect to "/signup"
-      flash[:message] = "Sorry this form is incomplete."
-    else
-      @user = User.create(email: params[:email], username: params[:username], password: params[:password])
-      session[:user_id] = @user.id
-      flash[:message] = "You have successfully signed up."
+    user = User.new(email: params[:email], username: params[:username], password: params[:password])
+    if user.save
+      instant.message = "You have successfully signed up."
+      session[:user_id] = user.id
       redirect to "/"
+    else
+      instant.error =  user.errors.full_messages.join(", ")
+      redirect to "/signup"
     end
   end
 
@@ -27,7 +29,6 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :"users/login"
     else
-      flash[:message] = "You have successfully logged in."
       redirect "/"
     end
   end
@@ -35,10 +36,17 @@ class UsersController < ApplicationController
   # -- after attempt to login
   post "/login" do
     user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password]) # --check if username and password matches
+    # --check if username and password matches
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      instant.message = "You have successfully logged in."
       redirect to "/"
     else
+      if user == nil
+        instant.error =  "Sorry buddy but no such user exists. Please try loggin in again."
+      elsif !user.authenticate(params[:password])
+        instant.error =  "Your password is incorrect. Please enter the correct password."
+      end
       redirect to "/login"
     end
   end
@@ -66,6 +74,7 @@ class UsersController < ApplicationController
   get "/logout" do
     if logged_in?
       session.destroy
+      instant.message = "You have successfully logged out of your account."
       redirect to "/login"
     else
       redirect to "/"
@@ -81,7 +90,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # --delete current user's amendment 
+  # --delete current user's amendment
   delete '/users/amendment/:id/delete' do
     if logged_in?
       if current_amendment.user_id == session[:user_id]

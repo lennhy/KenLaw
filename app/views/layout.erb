@@ -14,11 +14,22 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 </head>
   <body>
+    <% if instant.error %>
+      <div class="error"><%= instant.error %></div>
+      <%= instant.error = nil %>
+    <% end %>
+    <% if instant.message %>
+      <div class="message"><%= instant.message %></div>
+      <%= instant.message = nil %>
+    <% end %>
     <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+      <div class="notice"><%= flash[:notice] %></div>
     <% end %>
     <% if flash[:error] %>
-    <div class="notice"><%= flash[:error] %></div>
+      <div class="error"><%= flash[:error] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
     <% end %>
     <!DOCTYPE html>
     <html lang="en">

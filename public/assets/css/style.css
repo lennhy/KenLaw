@@ -13,7 +13,21 @@ body{
     color: #9C9C9C;
     font-weight: 700;
 }*/
-
+.error, .notice, .alert, .error, .message{
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: .045em;
+}
+.error{
+  background:  #ff5252;
+  color:  #fff;
+}
+.message{
+  background: #197bce;
+  color:  #fff;
+}
 ul li.list-group-item {
     width: 40%;
     padding: 35px;

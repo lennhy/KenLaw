@@ -1,9 +1,6 @@
 class QuestionsController < ApplicationController
 
-# --------------------------- READ --------------------------------
-
-
-  # --------------------------- CREATE --------------------------------
+# --------------------------- READ & CREATE--------------------------------
 
   # -- get the create a question page
   get '/questions/new' do

@@ -46,7 +46,9 @@ class ApplicationController < Sinatra::Base
         # --two negatives make a positive
         !!session[:user_id]
       end
-
+        def instant
+            instant ||= InstantMessage.new(session)
+        end
   end
 
   # --Instead of writing this type of logic directly in your view, we use helper methods. Helper methods are methods that are written in your controller, that are accessible in your views, and provide some support.
