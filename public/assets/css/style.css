@@ -67,6 +67,9 @@ ul{
 .navbar-inverse{
   padding: 10px;
 }
+a.navbar-brand{
+  font-size: 2em;
+}
 form.wrapper-centered h3, form.wrapper-centered-search h3, .navbar-header a.navbar-brand, div.jumbotron h3{
   font-family: 'Oswald', sans-serif;
   color: #ff5252;
