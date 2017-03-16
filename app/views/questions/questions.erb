@@ -2,45 +2,53 @@
   <h3>Welcome, <%= current_user.username %></h3>
   <h4>Posted Questions:</h4>
 </div>
-<% @users.each do |user| %>
-<div class="row">
-  <div class="col-md-12">
 
-    <ul class="list-group">
-      <% if user.questions != [] %>
-          <li class="list-group-item"><a href="/users/<%=user.id%>"><h4><span class="light-red"><b><%= user.username %></span><h4></a></li>
+    <% @users.each do |user| %>
+    
+      <div class="row">
 
-          <!--  Display questions -->
-          <% user.questions.each do |question| %>
-              <% if question.content %>
-                  <li class="list-group-item"><span class="light-red"><b><%= question.content %></span></li>
+        <div class="col-md-12">
+          <% if user.questions != [] %>
+
+              <!--  Display questions -->
+              <% user.questions.each do |question| %>
+
+                  <ul class="list-group">
+
+                      <% if question.content %>
+                          <li class="list-group-item"><a href="/users/<%=user.id%>"><span class="light-red"><%= user.username + ":"%></span> </a><span class="light-red"><%= question.content %></span></li>
+                      <% end %>
+
+                      <!--  Display comments -->
+                      <% question.comments.each_with_index do |comment, i| %>
+                        <% if comment.content %>
+                            <li class="list-group-item blue"><%= "#{comment.user.username}:"%><%=" #{comment.content}" %></li>
+                        <% end %>
+                      <% end %>
+
+                  <!-- Add comment  -->
+                  <% if user.id != current_user.id %>
+                        <form action="/comments" method="POST" class="wrapper-centered-query">
+                        <div class="form-group">
+                        <input type="hidden" name="id"  value="<%=question.id%>">
+                        <input type "text" id ="comment" name="content" class="form-control" placeholder="Add a comment">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                        </div>
+                        </form>
+                  <% end %>
+
+                </ul>
+
+              <!-- user.questions iterator-->
               <% end %>
 
-              <!--  Display comments -->
-              <% question.comments.each_with_index do |comment, i| %>
-                <% if comment.content %>
-                    <li class="list-group-item "><span class="blue"><%= "#{comment.user.username}:"%><%=" #{comment.content}" %></li></span>
-                <% end %>
-              <% end %>
-
-              <!-- Add comment  -->
-              <% if user.id != current_user.id %>
-                <form action="/comments" method="POST" class="wrapper-centered">
-                  <div class="form-group">
-                    <input type="hidden" name="id"  value="<%=question.id%>">
-                    <input type "text" id ="comment" name="content" class="form-control" placeholder="Add a comment">
-                    <button type="submit" class="btn btn-danger">Submit</button>
-                  </div>
-                </form>
-              <% end %>
-
-
-          <!-- user.questions iterator-->
+          <!-- end of first if statement -->
           <% end %>
 
+      <!--end of users iterator-->
 
-      <% end %>
-      </ul>
-    </div>
-  </div>
-<% end %>
+        </div>
+
+      </div>
+
+    <% end %>

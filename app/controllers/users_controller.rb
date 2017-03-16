@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       redirect to "/"
     else
       if user == nil
-        instant.error =  "Sorry buddy but no such user exists. Please try loggin in again."
+        instant.error =  "No such user exists. Please try logging in again."
       elsif !user.authenticate(params[:password])
         instant.error =  "Your password is incorrect. Please enter the correct password."
       end

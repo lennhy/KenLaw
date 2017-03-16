@@ -18,17 +18,26 @@ body{
   background: #FF4C6F;
   color:  #fff;
 }
+ul.list-group, ul + li.list-group-item{
+  /*border: 1px solid #ccc;*/
+  box-shadow: 0 3px 3px -3px #ccc;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+}
+
 ul li.list-group-item {
-    width: 40%;
-    padding: 35px;
+    width: 100%;
+    height: auto;
     background-color: rgba(255, 255, 255, 1);
-    margin: 10px;
+    margin: 2px 0 2px 0;
     border: none;
     box-shadow: 0 1px 1px -1px #A2A2A2;
     display: inline-block;
     color: #878787;
     font-weight: 400;
+    word-wrap: break-word;
 }
+
 h5{
   font-weight: 700;
   letter-spacing: .08em;
@@ -44,11 +53,21 @@ ul{
   float: left;
   clear: both;
 }
+button.btn{
+  margin: 10px 0 0 0 ;
+}
+button.btn.btn-danger{
+  border: 2px solid #FF8086;
+  color:  #FF8086;
+}
+button.btn.btn-danger:hover{
+  border: none;
+  color: #fff;
+}
 .form-group .col-xs-5, button.btn{
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   clear:both;
   background: transparent;
-  color:  #ff5252;
   border: 2px solid #ff5252;
 }
 .navbar-inverse .navbar-nav > li > a{
@@ -60,13 +79,12 @@ ul{
 a.navbar-brand{
   font-size: 2em;
 }
-form.wrapper-centered h3, form.wrapper-centered-search h3, .navbar-header a.navbar-brand, div.jumbotron h3{
+form.wrapper-centered h3, form.wrapper-centered-query h3, .navbar-header a.navbar-brand, div.jumbotron h3{
   font-family: 'Oswald', sans-serif;
   color: #ff5252;
   letter-spacing: .05em;
 }
 div.jumbotron{
-  margin-left: 20px;
 }
 form.wrapper-centered{
   width: 50%;
@@ -74,11 +92,10 @@ form.wrapper-centered{
   margin: 60px auto;
   padding: 20px 60px 20px 60px;
 }
-form.wrapper-centered-search{
-  width: 50%;
+form.wrapper-centered-query{
+  width: 100%;
   padding: 20px 60px 20px 60px;
-  margin: 60px auto;
-  margin-bottom: 40px;
+  /*margin: 60px auto;*/
 }
 nav.navbar.navbar-inverse {
   background: #333;
@@ -86,14 +103,26 @@ nav.navbar.navbar-inverse {
   border: none;
   margin-bottom:0;
   letter-spacing: .055em;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
 }
-
+.row{
+  margin: 0 5% 0 5%;
+}
 .container-fluid{
-  width: 90%;
+  width: 100%;
   padding: 0;
+}
+nav.navbar.navbar-inverse + .container-fluid .jumbotron{
+  margin-top: 60px;
 }
 div.jumbotron {
   width: 100%;
+}
+div.jumbotron h4, div.jumbotron h3{
+  width: 100%;
+  padding-left: 60px;
 }
 .container-fluid div.jumbotron {
     width: 100%;
@@ -112,14 +141,13 @@ div.jumbotron {
 .light-red{
   color: #FF8086;
 }
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERIES  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-@media only screen and (max-width: 640px) {
-  .container-fluid{
-    width: 90%;
-    margin: 0 5% 0 5%;
-  }
 
-  form.wrapper-centered, form.wrapper-centered-search{
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERIES  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+@media only screen and (max-width: 640px) {
+
+  form.wrapper-centered, form.wrapper-centered-query{
     width: 100%;
   }
   .container form.wrapper-centered{
@@ -132,5 +160,7 @@ div.jumbotron {
     text-align: left;
     font-weight: 400;
   }
-
+  .form-group .col-xs-5, button.btn{
+    width: 100%;
+  }
 }

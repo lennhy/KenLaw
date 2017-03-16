@@ -1,10 +1,13 @@
-<form class="wrapper-centered-search">
-  <h3> Search Amendments </h3>
-  <div class="form-group">
-    <input type "search" id ="searchBox" name="content" id="content" class="form-control" >
-  </div>
-</form>
-
+<ul class="list-group">
+  <li class="list-group-item">
+  <form class="wrapper-centered-query center-block">
+    <h3> Search Amendments </h3>
+    <div class="form-group">
+      <input type "search" id ="searchBox" name="content" id="content" class="form-control" >
+    </div>
+  </form>
+  </li>
+</ul>
 <div>
   <ol class = "amendments">
     <% @amendments.each_with_index do |amendment, i| %>
