@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
   # -- create and see the questions of the individual user
   post '/' do
     if params[:content] == "" || params[:content] == nil # --check if the user entered correct information if not redirect
+      instant.error =  "You need to write something before you submit your question."
       redirect to "questions/new"
     else
       current_user.questions.create(content: params[:content])

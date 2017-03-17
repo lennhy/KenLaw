@@ -30,7 +30,8 @@ end
 
 # -- create and see the comments of the individual user
 post '/comments' do
-  if params[:content] &&  params[:id] == "" || params[:content] &&  params[:id] == nil # --check if the user entered correct information if not redirect
+  if params[:content] == "" || params[:content] == nil # --check if the user entered correct information if not redirect
+    instant.error =  "You need to write something before you make a comment."
     redirect to "/"
   else
     question = Question.find(params[:id])

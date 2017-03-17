@@ -15,11 +15,11 @@ body{
   letter-spacing: .045em;
 }
 .error{
-  background: rgb(97, 155, 249);
+  background: #C23E5C;
   color:  #fff;
 }
 .message{
-  background: #FF4C6F;
+  background: #C23E5C;
   color:  #fff;
 }
 ul.list-group, ul + li.list-group-item{
