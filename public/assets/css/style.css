@@ -2,7 +2,6 @@ body{
   width: 100%;
   font-family: 'Roboto';
   background-color: rgba(179, 175, 241, .1);
-  letter-spacing: .055em;
 }
 .error, .notice, .alert, .message{
   width: 100%;
@@ -37,7 +36,9 @@ ul li.list-group-item {
     font-weight: 400;
     word-wrap: break-word;
 }
-
+nav.navbar.navbar-inverse + .container-fluid ul.list-group:first-child {
+  margin-top: 60px;
+}
 h5{
   font-weight: 700;
   letter-spacing: .08em;
@@ -142,7 +143,6 @@ div.jumbotron h4, div.jumbotron h3 .jumbotron .wrapper-centered-query{
     width: 100%;
     padding: 20px;
     margin: 0px 0px 20px 0px;
-    font-family: 'Oswald', sans-serif;
     color: #ff5252;
     box-shadow: 0 1px 1px -1px #A2A2A2;
     background: transparent;
@@ -164,6 +164,17 @@ div.jumbotron h4, div.jumbotron h3 .jumbotron .wrapper-centered-query{
 .bold{
   font-weight: bold;
 }
+.wrapper-centered-query .inline-label-header{
+  width: 60px;
+  display: inline-block;
+  float: left;
+  clear:none;
+}
+ul.list-group li.list-group-item:hover {
+
+  cursor: pointer;
+}
+
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERIES  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 @media only screen and (max-width: 640px) {
@@ -181,9 +192,7 @@ div.jumbotron h4, div.jumbotron h3 .jumbotron .wrapper-centered-query{
     text-align: left;
     font-weight: 400;
   }
-  li.list-group-item:hover {
-    background: #FF8086;
-}
+
   .form-group .col-xs-5, button.btn{
     width: 100%;
   }
