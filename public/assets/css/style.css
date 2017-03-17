@@ -79,6 +79,9 @@ button.btn.btn-danger:hover{
   background: transparent;
   border: 2px solid rgb(97, 155, 249);
 }
+.form-group .col-lg{
+  margin-top: 30px;
+}
 .navbar-inverse .navbar-nav > li > a{
   color: #fff;
 }
