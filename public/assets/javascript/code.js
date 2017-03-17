@@ -1,7 +1,3 @@
-var liNodes = document.querySelectorAll('ol.amendments li');
-var inputText = document.getElementById("searchBox");
-
-
 function Amendments(elementNodes, searchText) {
   this.textNodes = elementNodes;
   this.searchText = searchText.toLowerCase();
@@ -25,8 +21,11 @@ Amendments.prototype.filterAmendments = function(){
   list[0].innerHTML = result;
 }
 
-// if there is something to return start the eventListener
+// If there is something to return start the eventListener
 window.onload = function runCode(){
+  var liNodes = document.querySelectorAll('ol.amendments li');
+  var inputText = document.getElementById("searchBox");
+
   if (inputText !== null) {
     // Dynamically update the DOM or console every time user enters a key
     inputText.addEventListener('keyup', function() {
@@ -38,3 +37,20 @@ window.onload = function runCode(){
     }, false);
   }
 }
+
+// Make the message above navbar fades out after it appears
+$(document).ready(function(){
+
+      if($(".error")){
+        $(".error").delay(3000).slideUp();
+      }
+      if($(".message")){
+        $(".message").delay(3000).slideUp();
+      }
+      if($(".notice")){
+        $(".notice").delay(3000).slideUp();
+      }
+      if($(".alert")){
+        $(".alert").delay(3000).slideUp();
+      }
+});

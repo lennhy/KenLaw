@@ -1,21 +1,36 @@
-<ul class="list-group">
-  <li class="list-group-item">
-  <form class="wrapper-centered-query center-block">
-    <h3> Search Amendments </h3>
-    <div class="form-group">
-      <input type "search" id ="searchBox" name="content" id="content" class="form-control" >
-    </div>
-  </form>
-  </li>
-</ul>
-<div>
-  <ol class = "amendments">
-    <% @amendments.each_with_index do |amendment, i| %>
-      <li><a href='<%="/amendments/#{amendment.id}"%>'>
-        <%= "#{amendment.name}: " + amendment.content %>
-      </a></li><br>
 
-    <% end %>
-  </ol>
+
+    <div class="jumbotron">
+      <form class="wrapper-centered-query">
+        <h3> Search Amendments </h3>
+        <div class="form-group">
+          <input type "search" id ="searchBox" name="content" id="content" class="form-control" >
+        </div>
+      </form>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-12">
+
+          <% @amendments.each_with_index do |amendment, i| %>
+          <span class="number"><%= "#{i+1}" %></span>
+
+            <ul class="list-group">
+
+              <li class="list-group-item padding">
+                  <a class ="grey" href='<%="/amendments/#{amendment.id}"%>'>
+                  <span class="light-red bold"><%= " #{amendment.name}: "%></span> <%= amendment.content%>
+                </a>
+              </li>
+            </ul>
+          <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 <!-- "/users_questions/#{@question.id}" -->

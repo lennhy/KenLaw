@@ -2,6 +2,7 @@ body{
   width: 100%;
   font-family: 'Roboto';
   background-color: rgba(179, 175, 241, .1);
+  letter-spacing: .055em;
 }
 .error, .notice, .alert, .message{
   width: 100%;
@@ -31,7 +32,6 @@ ul li.list-group-item {
     background-color: rgba(255, 255, 255, 1);
     margin: 2px 0 2px 0;
     border: none;
-    box-shadow: 0 1px 1px -1px #A2A2A2;
     display: inline-block;
     color: #878787;
     font-weight: 400;
@@ -86,6 +86,19 @@ form.wrapper-centered h3, form.wrapper-centered-query h3, .navbar-header a.navba
 }
 div.jumbotron{
 }
+span.number{
+  position: absolute;
+  /*border: 2px solid #ff5252;*/
+  background: #FF8086;
+  color: #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  left: -15px;
+  z-index: 2;
+  text-align: center;
+  padding: 2px;
+}
 form.wrapper-centered{
   width: 50%;
   height: 300px;
@@ -93,9 +106,10 @@ form.wrapper-centered{
   padding: 20px 60px 20px 60px;
 }
 form.wrapper-centered-query{
-  width: 100%;
-  padding: 20px 60px 20px 60px;
-  /*margin: 60px auto;*/
+  width: 60%;
+}
+.padding{
+  padding: 30px;
 }
 nav.navbar.navbar-inverse {
   background: #333;
@@ -120,7 +134,7 @@ nav.navbar.navbar-inverse + .container-fluid .jumbotron{
 div.jumbotron {
   width: 100%;
 }
-div.jumbotron h4, div.jumbotron h3{
+div.jumbotron h4, div.jumbotron h3 .jumbotron .wrapper-centered-query{
   width: 100%;
   padding-left: 60px;
 }
@@ -136,13 +150,20 @@ div.jumbotron h4, div.jumbotron h3{
     border-radius: 0;
 }
 .blue{
-  color: #634EFF;
+  color: #4E36FF;
 }
 .light-red{
   color: #FF8086;
 }
-
-
+.light-grey{
+  color: #ccc;
+}
+.grey{
+  color: #666;
+}
+.bold{
+  font-weight: bold;
+}
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERIES  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 @media only screen and (max-width: 640px) {
@@ -160,6 +181,9 @@ div.jumbotron h4, div.jumbotron h3{
     text-align: left;
     font-weight: 400;
   }
+  li.list-group-item:hover {
+    background: #FF8086;
+}
   .form-group .col-xs-5, button.btn{
     width: 100%;
   }
