@@ -1,3 +1,6 @@
+var liNodes = document.querySelectorAll('.amendments ul.list-group li');
+var inputText = document.getElementById("searchBox");
+console.log(liNodes);
 function Amendments(elementNodes, searchText) {
   this.textNodes = elementNodes;
   this.searchText = searchText.toLowerCase();
@@ -7,15 +10,17 @@ Amendments.prototype.filterAmendments = function(){
   let regex = new RegExp(this.searchText);
 
   let list = document.getElementsByClassName('amendments');
-
+  console.log(list);
   let result = [];
 
   for(let i=0; i < this.textNodes.length; i++){
+    let counter = i+1;
     let textNode = this.textNodes[i].innerHTML;
     let cleanTextNode = textNode.replace(/;/g, " ").toLowerCase();
 
     if(regex.test(cleanTextNode)){
-       result.push("<li>"+ textNode + "</li>");
+       result.push('<span class="number">' + counter +'</span>' +
+       '<ul class="list-group"><li class="list-group-item">'+ textNode + "</li></ul>");
     }
   }
   list[0].innerHTML = result;
@@ -23,9 +28,6 @@ Amendments.prototype.filterAmendments = function(){
 
 // If there is something to return start the eventListener
 window.onload = function runCode(){
-  var liNodes = document.querySelectorAll('ol.amendments li');
-  var inputText = document.getElementById("searchBox");
-
   if (inputText !== null) {
     // Dynamically update the DOM or console every time user enters a key
     inputText.addEventListener('keyup', function() {

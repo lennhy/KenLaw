@@ -39,6 +39,8 @@ ul li.list-group-item {
     color: #878787;
     font-weight: 400;
     word-wrap: break-word;
+    list-style: none;
+
 }
 nav.navbar.navbar-inverse + .container-fluid ul.list-group:first-child {
   margin-top: 60px;
