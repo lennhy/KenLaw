@@ -13,12 +13,13 @@ class QuestionsController < ApplicationController
 
   # -- create and see the questions of the individual user
   post '/' do
-    if params[:content] == "" || params[:content] == nil # --check if the user entered correct information if not redirect
-      instant.error =  "You need to write something before you submit your question."
-      redirect to "questions/new"
+    question = Question.new(content: params[:content], user_id: current_user.id)
+    if question.save
+      instant.message = "Your question was submitted."
+      redirect to "/"
     else
-      current_user.questions.create(content: params[:content])
-      redirect to "users/profile"
+      instant.error =  question.errors.full_messages.join(", ")
+      redirect to "questions/new"
     end
   end
 
@@ -49,13 +50,14 @@ class QuestionsController < ApplicationController
 
   # --edit question and return a new amendment result
   patch '/questions/:id' do
-    # --check if the user entered correct information if not redirect
-    if params[:content] == ""
-      redirect to "/questions/:id/edit"
-    else
-      current_question.update(content: params[:content])
-      # -- associate the amendment that was returned to belong to the question
+    question = Question.find(params[:id])
+    if question.update(content: params[:content]) # --check if the user entered correct information if not redirect
+      instant.message = "Your question has been edited"
       redirect to "users/profile"
+    else
+      instant.error =  question.errors.full_messages.join(", ")
+      # --check if the user entered correct information if not redirect
+      redirect to "/questions/#{question.id}/edit"
       end
   end
 

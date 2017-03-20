@@ -29,15 +29,25 @@ end
 # --------------------------- CREATE --------------------------------
 
 # -- create and see the comments of the individual user
+# user = User.new(email: params[:email], username: params[:username], password: params[:password])
+# if user.save
+#   instant.message = "You have successfully signed up."
+#   session[:user_id] = user.id
+#   redirect to "/"
+# else
+#   instant.error =  user.errors.full_messages.join(", ")
+#   redirect to "/signup"
+# end
 post '/comments' do
-  if params[:content] == "" || params[:content] == nil # --check if the user entered correct information if not redirect
-    instant.error =  "You need to write something before you make a comment."
+  question = Question.find(params[:id])
+  comment = Comment.new(content: params[:content], question_id: question.id, user_id: current_user.id)
+  if comment.save
+    question.comments << comment
+    instant.message = "Your comment was submitted."
     redirect to "/"
   else
-    question = Question.find(params[:id])
-    comment = Comment.create(content: params[:content], question_id: question.id, user_id: current_user.id)
-    question.comments << comment
-    redirect to "users/profile"
+    instant.error =  comment.errors.full_messages.join(", ")
+    redirect to "/"
   end
 
 end
@@ -46,12 +56,14 @@ end
 
 # --edit comment and return a new amendment result
 patch '/comments/:id' do
-  if params[:content] == "" # --check if the user entered correct information if not redirect
+  comment = Comment.find(params[:id])
+  if comment.update(content: params[:content]) # --check if the user entered correct information if not redirect
+    instant.message = "Your comment has been edited"
     redirect to "users/profile"
   else
-    current_comment.update(content: params[:content])      # -- find the closest matching amendment for the search entered in the create a comment page
+    instant.error =  comment.errors.full_messages.join(", ")
     # -- associate the amendment that was returned to belong to the comment
-    redirect to "users/profile"
+    redirect to "/comments/#{comment.id}/edit"
     end
 end
 
