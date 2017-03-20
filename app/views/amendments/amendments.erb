@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<!-- <div class="jumbotron">
 
       <form class="wrapper-centered-query center-block">
         <div class="form-group">
@@ -32,5 +32,23 @@
 
   </div>
 
-</div>
+</div> -->
 <!-- "/users_questions/#{@question.id}" -->
+
+<form  action="/users_questions" method="POST">
+  <div class="form-group">
+    <input type "search" id ="searchBox" name="content" id="content" class="form-control" >
+  </div>
+</form>
+
+<div>
+  <ol class = "amendments">
+    <% @amendments.each_with_index do |a, i| %>
+
+      <li><a href='<%="amendments/#{i+1}"%>'>
+        <%= "#{a.name}: " + a.content %>
+      </a></li><br>
+
+    <% end %>
+  </ol>
+</div>
