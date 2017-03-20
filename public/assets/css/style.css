@@ -51,9 +51,13 @@ ul.list-group, ul + li.list-group-item{
 footer.footer{
   text-align: center;
   font-size: .95em;
-}
-footer.footer {
-  color: #4E6CA3
+  color: #4E6CA3;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
 }
 
 ul li.list-group-item {

@@ -29,15 +29,6 @@ end
 # --------------------------- CREATE --------------------------------
 
 # -- create and see the comments of the individual user
-# user = User.new(email: params[:email], username: params[:username], password: params[:password])
-# if user.save
-#   instant.message = "You have successfully signed up."
-#   session[:user_id] = user.id
-#   redirect to "/"
-# else
-#   instant.error =  user.errors.full_messages.join(", ")
-#   redirect to "/signup"
-# end
 post '/comments' do
   question = Question.find(params[:id])
   comment = Comment.new(content: params[:content], question_id: question.id, user_id: current_user.id)

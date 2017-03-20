@@ -1,6 +1,8 @@
-<h3>Edit your question</h3>
+<div class="jumbotron">
+  <h3>Edit your comment</h3>
+</div>
 
-<form action="/comments/<%=current_comment.id%>" method="POST">
+<form action="/comments/<%=current_comment.id%>" method="POST" class="wrapper-centered-query center-block">
 
   <div class="form-group">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
