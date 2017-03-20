@@ -15,7 +15,7 @@
                   <ul class="list-group">
 
                       <% if question.content %>
-                          <li class="list-group-item"><a href="/users/<%=user.id%>"><span class="light-red"><%= user.username + ":"%></span> </a><span class="light-red"><%= question.content %></span></li>
+                          <li class="list-group-item"><a href="/users/<%=user.id%>"><span class="light-blue"><%= user.username + ":"%></span> </a><span class="light-blue"><%= question.content %></span></li>
                       <% end %>
 
                       <!--  Display comments -->
@@ -30,8 +30,8 @@
                         <form action="/comments" method="POST" class="wrapper-centered-query">
                         <div class="form-group">
                         <input type="hidden" name="id"  value="<%=question.id%>">
-                        <input type "text" id ="comment" name="content" class="form-control" placeholder="Add a comment">
-                        <button type="submit" class="btn btn-danger">Submit</button>
+                        <textarea class="form-control" rows="5" id ="comment" class="col-lg-6" name="content" class="form-control" placeholder="Add a comment"></textarea>
+                        <button type="submit" class="btn btn-default">Submit</button>
                         </div>
                         </form>
                   <% end %>

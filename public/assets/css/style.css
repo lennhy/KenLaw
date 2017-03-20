@@ -14,15 +14,10 @@ body{
   text-align: center;
   font-weight: 700;
   letter-spacing: .045em;
+  background: #F2F2F2;
+  color:  #333;
 }
-.error{
-  background: #C23E5C;
-  color:  #fff;
-}
-.message{
-  background: #C23E5C;
-  color:  #fff;
-}
+
 div.jumbotron .banner-header{
   width: 100%;
   height: auto;
@@ -45,20 +40,23 @@ ul.list-group, ul + li.list-group-item{
   box-shadow: 0 3px 3px -3px #ccc;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 5px;
+  padding: 20px;
 }
 
 ul li.list-group-item {
     width: 100%;
     height: auto;
     background-color: rgba(255, 255, 255, 1);
-    margin: 2px 0 2px 0;
     border: none;
+    margin: 2px 0 2px 0;
     display: inline-block;
     color: #878787;
     font-weight: 400;
     word-wrap: break-word;
     list-style: none;
-
+}
+.list-group-item {
+  padding: 0px 0px 10px 0px;
 }
 nav.navbar.navbar-inverse + .container-fluid ul.list-group:first-child {
   margin-top: 60px;
@@ -90,6 +88,11 @@ button.btn.btn-danger{
 button.btn.btn-danger:hover{
   border: none;
   color: #fff;
+}
+button.btn.btn-default{
+  border: 2px solid #878787;
+  color: #878787;
+  font-weight: bold;
 }
 .form-group .col-xs-5, button.btn{
   /*margin-top: 10px;*/
@@ -192,6 +195,9 @@ div.jumbotron h4, div.jumbotron h3 .jumbotron .wrapper-centered-query{
   color: #4E6C7D;
 }
 .light-blue{
+  color: rgb(97, 155, 249);
+}
+.light-blue-background{
   background: rgb(97, 155, 249);
 }
 .light-red{
