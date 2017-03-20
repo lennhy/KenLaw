@@ -7,6 +7,8 @@ body{
   font-family: 'Roboto';
   background-color: rgba(179, 175, 241, .1);
   font-size: 12px;
+  padding: 0;
+  margin: 0;
 }
 
 .error, .notice, .alert, .message{
@@ -45,6 +47,13 @@ ul.list-group, ul + li.list-group-item{
   background-color: rgba(255, 255, 255, 1);
   border-radius: 5px;
   padding: 20px;
+}
+footer.footer{
+  text-align: center;
+  font-size: .95em;
+}
+footer.footer {
+  color: #4E6CA3
 }
 
 ul li.list-group-item {
@@ -119,7 +128,6 @@ button.btn.btn-default{
  a.navbar-brand{
   font-size: 2em;
   font-family: 'Oswald', sans-serif;
-
 }
 h3, h4, h5{
   font-family: 'Oswald', sans-serif;

@@ -1,6 +1,11 @@
 var liNodes = document.querySelectorAll('.amendments ul.list-group li');
 var inputText = document.getElementById("searchBox");
-console.log(liNodes);
+
+(function(){
+  var d = new Date().getFullYear();
+  document.getElementById("date").innerHTML = "© POLYVERGE "+d;
+})();
+
 function Amendments(elementNodes, searchText) {
   this.textNodes = elementNodes;
   this.searchText = searchText.toLowerCase();
