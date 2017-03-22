@@ -84,8 +84,7 @@ class UsersController < ApplicationController
   # Add an amendment to user
   patch "/users/amendment/:id" do
     if logged_in?
-      amendment = Amendment.create(name: current_amendment.name, content: current_amendment.content)
-      current_user.amendments << amendment
+      current_user.amendments << current_amendment
       flash[:notice] = "Amendment successfully added"
       redirect to 'users/profile'
     end

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :amendments
+  has_many :user_amendments
+  has_many :amendments, through: :user_amendments
   has_many :questions
   has_many :comments
 
