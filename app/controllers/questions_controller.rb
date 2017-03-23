@@ -34,7 +34,6 @@ class QuestionsController < ApplicationController
   # -- see the newly created question and its corresponding amendment result from the search
   get '/questions/:id' do
     if logged_in?
-      current_question
       erb :'questions/show'
     else
       redirect to '/login'
