@@ -1,6 +1,5 @@
 <div class="jumbotron">
-<% if !current_user.id != logged_in? %>
-   <h3>  <%=  current_user.username%>'s Profile</h3>
+   <h3>  <%=  @user.username%>'s Profile</h3>
 <% else %>
   <h3> My Profile</h3>
 <% end %>
@@ -12,13 +11,12 @@
     <ul class="list-group">
 
       <li class="list-group-item">
-        <% if !current_user.id != logged_in? %>
-          <h5><%=  current_user.username%>'s questions</h5>
+          <h5><%=  @user.username%>'s questions</h5>
         <% else %>
           <h5>My questions</h5>
         <% end %>
         <ul>
-          <%current_user.questions.each_with_index do |question, i| %>
+          <%@user.questions.each_with_index do |question, i| %>
             <li><%= "#{i+1}. #{question.content} " %></a></li>
             <!-- Option to delete question -->
             <form action="/questions/<%=question.id%>/delete" method="POST">
@@ -29,7 +27,6 @@
             <button type="submit" class="btn btn-danger"><a href="/questions/<%=question.id%>/edit">Edit Question</a></button>
 
             <% question.comments.each_with_index do |comment, i| %>
-              <% if comment.content %>
                   <li class="list-group-item light-blue"><h5><%= "#{comment.user.username}: #{comment.content}" %></h5></li>
               <% end %>
             <% end %>
@@ -38,15 +35,13 @@
       </li>
 
       <li class="list-group-item">
-        <% if !current_user.id != logged_in? %>
-          <h5><%=  current_user.username%>'s comments</h5>
+          <h5><%=  @user.username%>'s comments</h5>
         <% else %>
           <h5>My comments</h5>
         <% end %>
         <ul>
-        <%current_user.comments.each_with_index do |comment, i| %>
+        <%@user.comments.each_with_index do |comment, i| %>
         <li><%= "#{comment.user.username}: " + comment.content %></li>
-          <% if comment.question %>
             <li><%= "#{comment.question.user.username}: " + comment.question.content %></li>
           <% end %>
           <!-- Option to delete comment -->
