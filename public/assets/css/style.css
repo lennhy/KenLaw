@@ -10,7 +10,9 @@ body{
   padding: 0;
   margin: 0;
 }
-
+li.margin{
+  margin: 60px;
+}
 .error, .notice, .alert, .message{
   width: 100%;
   padding: 20px;
@@ -71,6 +73,10 @@ ul li.list-group-item {
     font-weight: 400;
     word-wrap: break-word;
     list-style: none;
+}
+ul li.list-group-item-inline{
+  display: inline;
+  margin: 30px;
 }
 .list-group-item {
   padding: 0px 0px 10px 0px;
@@ -249,7 +255,11 @@ ul.list-group li.list-group-item:hover {
   .container form.wrapper-centered{
     border: none;
   }
-
+  .list-inline .margin{
+    margin:0 auto;
+    clear: both;
+    padding:30px;
+  }
   ul  li.list-group-item {
     width: 100%;
     margin: 5px auto;

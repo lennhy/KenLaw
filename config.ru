@@ -20,4 +20,5 @@ use AmendmentsController
 use QuestionsController
 use UsersController
 use CommentsController
+use BooksController
 run ApplicationController
