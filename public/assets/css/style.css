@@ -11,7 +11,7 @@ body{
   margin: 0;
 }
 li.margin{
-  margin: 60px;
+  margin: 30px;
 }
 .error, .notice, .alert, .message{
   width: 100%;
@@ -260,6 +260,7 @@ ul.list-group li.list-group-item:hover {
     clear: both;
     padding:30px;
   }
+
   ul  li.list-group-item {
     width: 100%;
     margin: 5px auto;
