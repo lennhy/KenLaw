@@ -1,6 +1,14 @@
 class QuestionsController < ApplicationController
 
 # --------------------------- READ & CREATE--------------------------------
+  get "/questions" do
+    if !logged_in?
+      redirect to "/login"
+    else
+      @users = User.all
+      erb  :"questions/questions"
+    end
+  end
 
   # -- get the create a question page
   get '/questions/new' do

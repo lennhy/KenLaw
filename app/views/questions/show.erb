@@ -2,8 +2,9 @@
 <div class="jumbotron">
   <h3>Question:</h3>
 </div>
-<h4><%= current_question.content %></h4>
-
+<% if current_question !=nil %>
+  <h4><%= current_question.content %></h4>
+<% end %>
   <!-- Option to delete question -->
   <form action="/questions/<%=current_question.id%>/delete" method="POST">
     <input id="hidden" type="hidden" name="_method" value="DELETE">

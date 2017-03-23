@@ -18,8 +18,8 @@ class ApplicationController < Sinatra::Base
     if !logged_in?
       redirect to "/login"
     else
-      @users = User.all
-      erb  :"questions/questions"
+      @amendments = Amendment.all
+      erb  :"amendments/amendments"
     end
   end
 
