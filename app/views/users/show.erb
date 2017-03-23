@@ -1,8 +1,6 @@
 <div class="jumbotron">
-   <h3>  <%=  @user.username%>'s Profile</h3>
-<% else %>
+  <h3>  <%=  @user.username%>'s Profile</h3>
   <h3> My Profile</h3>
-<% end %>
 </div>
 
 <div class="row">
@@ -12,9 +10,7 @@
 
       <li class="list-group-item">
           <h5><%=  @user.username%>'s questions</h5>
-        <% else %>
           <h5>My questions</h5>
-        <% end %>
         <ul>
           <%@user.questions.each_with_index do |question, i| %>
             <li><%= "#{i+1}. #{question.content} " %></a></li>
@@ -36,9 +32,7 @@
 
       <li class="list-group-item">
           <h5><%=  @user.username%>'s comments</h5>
-        <% else %>
           <h5>My comments</h5>
-        <% end %>
         <ul>
         <%@user.comments.each_with_index do |comment, i| %>
         <li><%= "#{comment.user.username}: " + comment.content %></li>

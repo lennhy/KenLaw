@@ -51,6 +51,18 @@ class UsersController < ApplicationController
     end
   end
 
+
+  # -- show users page of question posted by id
+  get "/users/:id" do
+    if logged_in?
+      @user = User.find(params[:id])
+      erb :'users/show'
+
+    else
+      redirect to '/login'
+    end
+  end
+
   # --show current_user profile
   get "/users/profile" do
     if logged_in?
@@ -60,16 +72,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # -- show users page of question posted by id
-  get "/users/:id" do
-    if logged_in?
-      @user = User.find_by_id(params[:id])
-      erb :'users/show'
-
-    else
-      redirect to '/login'
-    end
-  end
 
   get "/logout" do
     if logged_in?
