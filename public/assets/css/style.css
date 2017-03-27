@@ -154,6 +154,9 @@ div.jumbotron h3{
 color: #fff;
 margin-left: 60px;
 }
+.menu-button{
+  color: #fff;
+}
 span.number{
   position: absolute;
   /*border: 2px solid rgb(97, 155, 249);*/

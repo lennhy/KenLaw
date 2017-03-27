@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_secure_password # --uses bcrypt-ruby automatically handles the storage and generation of salts for you
   validates :username, :email, uniqueness: true
+  validates :amendments, uniqueness: true
   validates :username, :email, presence: true
   validate  :email, :email_format
 
