@@ -43,7 +43,7 @@ Amendments.prototype.filterAmendments = function(){
        result.push('<span class="number">' + counter +'</span>' +
        '<ul class="list-group"><li class="list-group-item">'+ textNode + "</li>"+
        '<li class="list-group-item">'+
-         `<form action="/users/amendment/${i+221}"` + 'method="POST">'+
+         `<form action="/users/amendment/${i+222}"` + 'method="POST">'+
            '<div class="form-group">'+
             ' <input id="hidden" type="hidden" name="_method" value="PATCH">'+
              '<input type="hidden" name="content" value="<%= amendment.content %>" class="form-control">'+
