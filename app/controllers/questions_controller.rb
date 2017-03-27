@@ -11,23 +11,23 @@ class QuestionsController < ApplicationController
   end
 
   # -- get the create a question page
-  get '/questions/new' do
-    if logged_in?
-       erb :"questions/new"
-     else
-       redirect to '/login'
-     end
-  end
+  # get '/questions/new' do
+  #   if logged_in?
+  #      erb :"questions/new"
+  #    else
+  #      redirect to '/login'
+  #    end
+  # end
 
   # -- create and see the questions of the individual user
   post '/' do
     question = Question.new(content: params[:content], user_id: current_user.id)
     if question.save
       instant.message = "Your question was submitted."
-      redirect to "/"
+      redirect to "questions/questions"
     else
       instant.error =  question.errors.full_messages.join(", ")
-      redirect to "questions/new"
+      redirect to "questions/questions"
     end
   end
 

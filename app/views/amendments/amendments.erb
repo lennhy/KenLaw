@@ -14,15 +14,22 @@
       <div class="col-md-12 amendments">
 
           <% @amendments.each_with_index do |amendment, i| %><span class="number"><%= "#{i+1}" %></span>
-
             <ul class="list-group">
-
               <li class="list-group-item padding">
-                  <a class ="grey" href='<%="/amendments/#{amendment.id}"%>'>
                   <span class="light-red bold"><%= " #{amendment.name}: "%></span> <%= amendment.content%>
-                </a>
               </li>
+
+              <p class="list-group-item">
+                <form action='/users/amendment/<%= "#{amendment.id}" %>' method="POST">
+                  <div class="form-group">
+                    <input id="hidden" type="hidden" name="_method" value="PATCH">
+                    <input type="hidden" name="content" value="<%= amendment.content %>" class="form-control">
+                    <button type="submit" class="btn btn-danger">Save to your profile</button>
+                  </div>
+                </form>
+              </p>
             </ul>
+
           <% end %>
 
       </div>

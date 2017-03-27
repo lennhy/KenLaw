@@ -86,14 +86,14 @@ class UsersController < ApplicationController
     if logged_in?
       current_user.amendments << current_amendment
       flash[:notice] = "Amendment successfully added"
-      redirect to 'users/profile'
+      redirect to '/'
     end
   end
 
   # --delete current user's amendment
   delete '/users/amendment/:id/delete' do
     if logged_in?
-      if current_amendment.user_id == session[:user_id]
+      if current_amendment.user_ids.any? { |u|  u == session[:user_id] }
 
         current_user.amendments.delete(Amendment.find(params[:id]))
 
