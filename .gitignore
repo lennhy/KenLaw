@@ -1,4 +1,3 @@
 *config/database.yml
 *.env
 *config/secrets.yml
-*config/environment.rb
