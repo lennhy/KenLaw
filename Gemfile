@@ -14,7 +14,6 @@ gem 'rack-flash3'
 gem 'sinatra-redirect-with-flash'
 gem 'bcrypt'
 gem "tux"
-gem 'figaro'
 
 group :development do
   gem 'sqlite3'
