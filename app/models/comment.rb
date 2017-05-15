@@ -6,6 +6,6 @@ class Comment < ActiveRecord::Base #JOIN TABLE
 
   validates :content, presence: true
   validate  :content, :no_characters
-
+  #test
 
 end
