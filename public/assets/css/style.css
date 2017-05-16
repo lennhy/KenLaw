@@ -91,10 +91,9 @@ p.list-group-item{
   color:  #333;
   position: fixed;
   z-index: 9999;
-  top:65px;
+  top:0;
   opacity: 8;
   box-shadow: 2px 2px 2px #636363;
-  border-radius: 10px;
 }
 
 
@@ -115,13 +114,16 @@ p.list-group-item{
 footer.footer{
   text-align: center;
   font-size: .95em;
-  color: #4E6CA3;
+  color: #fff;
   position: relative;
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   text-align: center;
+  background: #000;
+  opacity: .8;
 }
 
 h5{
