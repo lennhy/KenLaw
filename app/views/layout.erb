@@ -65,12 +65,11 @@
             <ul class="nav navbar-nav">
               <li><a href="/books"><span class="glyphicon glyphicon-list-alt"></span>Books</a></li>
 
-              <% if logged_in? %>
-                <li><a href="/questions"><span class="glyphicon glyphicon-question-sign"></span></span>Ask a Question</a></li>
+                <li><a href="/questions"><span class="glyphicon glyphicon-question-sign"></span></span>Questions / Comments</a></li>
+                <% if logged_in? %>
                 <li><a href="/users/profile"><span class="glyphicon glyphicon-user"></span>My Profile</a></li>
+                <% end %>
                 <li><a href="/"><span class="glyphicon glyphicon-search"></span>Search Amendments</a></li>
-              <% else %>
-              <% end %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <% if logged_in? %>

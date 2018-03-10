@@ -15,12 +15,12 @@ class ApplicationController < Sinatra::Base
 
   # --home page for website
   get "/" do
-    if !logged_in?
-      redirect to "/login"
-    else
+    # if !logged_in?
+    #   redirect to "/login"
+    # else
       @amendments = Amendment.all
       erb  :"amendments/amendments"
-    end
+    # end
   end
 
   # -- helper method

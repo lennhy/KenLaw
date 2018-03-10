@@ -2,12 +2,14 @@ class QuestionsController < ApplicationController
 
 # --------------------------- READ & CREATE--------------------------------
   get "/questions" do
-    if !logged_in?
-      redirect to "/login"
-    else
+    # if !logged_in?
+      # flash[:notice] = 'Sorry. You need to login before you can ask a question.'
+
+      # redirect to "/login"
+    # else
       @users = User.all
       erb  :"questions/questions"
-    end
+    # end
   end
 
   # -- get the create a question page
@@ -21,19 +23,24 @@ class QuestionsController < ApplicationController
 
   # -- create and see the questions of the individual user
   post '/' do
-    question = Question.new(content: params[:content], user_id: current_user.id)
-    if question.save
-      instant.message = "Your question was submitted."
-      redirect to "questions/questions"
+    if !logged_in?
+      flash[:notice] = 'Sorry. You need to login before you can ask a question.'
+      redirect to "/login"
     else
-      instant.error =  question.errors.full_messages.join(", ")
-      redirect to "questions/questions"
+      question = Question.new(content: params[:content], user_id: current_user.id)
+      if question.save
+        instant.message = "Your question was submitted."
+        redirect to "/questions"
+      else
+        instant.error =  question.errors.full_messages.join(", ")
+        redirect to "/questions"
+      end
     end
   end
 
   # -- see the newly created question and its corresponding amendment result from the search
   get '/questions/:id' do
-    if logged_in?
+    if logged_in? && current_user
       erb :'questions/show'
     else
       redirect to '/login'
@@ -44,7 +51,7 @@ class QuestionsController < ApplicationController
 
   # -- change question
   get '/questions/:id/edit' do
-    if logged_in?
+    if logged_in? && current_user
       if current_question.user_id == current_user.id
        erb :'questions/edit'
       else
@@ -72,7 +79,7 @@ class QuestionsController < ApplicationController
 
   # --delete question and corresponding amendment result
   delete '/questions/:id/delete' do
-    if logged_in?
+    if logged_in? && current_user
       if current_question != "" || current_question != nil
         current_question.id = params[:id]
       if current_question.user_id == session[:user_id]

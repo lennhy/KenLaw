@@ -38,7 +38,7 @@
                       <% end %>
 
                   <!-- Add comment  -->
-                  <% if user.id != current_user.id %>
+                  <% if session[:user_id] && user.id != current_user.id %>
                         <form action="/comments" method="POST" class="wrapper-centered-query">
                         <div class="form-group">
                         <input type="hidden" name="id"  value="<%=question.id%>">
